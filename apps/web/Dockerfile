@@ -12,10 +12,12 @@ FROM base AS deps
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/web/package.json apps/web/prisma.config.ts apps/web/
 COPY apps/web/prisma apps/web/prisma
+COPY packages/catalog/package.json packages/catalog/
 RUN if [ -s /usr/local/share/extra-ca.pem ]; then export NODE_EXTRA_CA_CERTS=/usr/local/share/extra-ca.pem; fi; \
     pnpm install --frozen-lockfile
 
 FROM deps AS build
+COPY packages packages
 COPY apps/web apps/web
 RUN pnpm --filter web build
 

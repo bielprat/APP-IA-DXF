@@ -1,0 +1,52 @@
+{
+  "category": "cad-fonts",
+  "label": "Tipus de fitxer",
+  "groups": [
+    {
+      "id": "cad-fonts.tipus",
+      "title": "Tipus de fitxer",
+      "mode": "single",
+      "default": [],
+      "presentation": "chips",
+      "min": 1,
+      "options": [
+        {
+          "id": "cad-fonts.planol-2d",
+          "label": "Plànol 2D",
+          "technical": true,
+          "status": "ok"
+        },
+        {
+          "id": "cad-fonts.alcat",
+          "label": "Alçat",
+          "technical": true,
+          "status": "ok"
+        },
+        {
+          "id": "cad-fonts.seccio",
+          "label": "Secció",
+          "technical": true,
+          "status": "ok"
+        },
+        {
+          "id": "cad-fonts.topografia",
+          "label": "Topografia",
+          "technical": true,
+          "status": "ok"
+        },
+        {
+          "id": "cad-fonts.imatge",
+          "label": "Imatge o render",
+          "technical": false,
+          "status": "ok"
+        },
+        {
+          "id": "cad-fonts.croquis",
+          "label": "Croquis",
+          "technical": false,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "category": "cad-correccions",
+  "label": "Correccions ràpides",
+  "groups": [
+    {
+      "id": "cad-correccions.rapides",
+      "title": "Correccions ràpides",
+      "mode": "multi",
+      "default": [],
+      "presentation": "chips",
+      "min": 0,
+      "options": [
+        {
+          "id": "cad-correccions.parets-gruixudes",
+          "label": "Parets massa gruixudes",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.parets-primes",
+          "label": "Parets massa primes",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.alcada-planta",
+          "label": "Alçada de planta incorrecta",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.falten-obertures",
+          "label": "Falten obertures",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.coberta-incorrecta",
+          "label": "Coberta incorrecta",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.falten-detalls",
+          "label": "Falten detalls exteriors",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.capes-mal-organitzades",
+          "label": "Capes mal organitzades",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.colors-poc-clars",
+          "label": "Colors de capes poc clars",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.topografia-no-separada",
+          "label": "Topografia no separada",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.logo-deformat",
+          "label": "Logo deformat",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.origen-incorrecte",
+          "label": "Origen o coordenades incorrectes",
+          "status": "ok"
+        },
+        {
+          "id": "cad-correccions.geometria-no-tancada",
+          "label": "Geometria no tancada",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

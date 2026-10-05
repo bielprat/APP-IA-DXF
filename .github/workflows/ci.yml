@@ -38,6 +38,9 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Catalog package (typecheck + tests)
+        working-directory: packages/catalog
+        run: pnpm typecheck && pnpm test
       - run: pnpm exec prisma migrate deploy
       - run: pnpm lint
       - run: pnpm typecheck

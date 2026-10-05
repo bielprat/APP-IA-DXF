@@ -1,0 +1,99 @@
+{
+  "category": "referencies",
+  "label": "Referències",
+  "groups": [
+    {
+      "id": "referencies.finalitat",
+      "title": "Aquesta referència és per a:",
+      "mode": "single",
+      "default": [],
+      "presentation": "chips",
+      "min": 0,
+      "options": [
+        {
+          "id": "referencies.per-vegetacio",
+          "label": "Vegetació",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.per-materials",
+          "label": "Materials",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.per-illuminacio",
+          "label": "Il·luminació",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.per-entorn",
+          "label": "Entorn",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.per-interior",
+          "label": "Interior",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.per-perspectiva",
+          "label": "Altra perspectiva",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "referencies.aprofitar",
+      "title": "Què vols aprofitar?",
+      "mode": "multi",
+      "default": [
+        "referencies.guia-visual"
+      ],
+      "presentation": "chips",
+      "min": 1,
+      "options": [
+        {
+          "id": "referencies.qualitat",
+          "label": "Qualitat",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.color",
+          "label": "Color",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.textura",
+          "label": "Textura",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.ambient",
+          "label": "Ambient",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.tipus",
+          "label": "Tipus",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.densitat",
+          "label": "Densitat",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.distribucio",
+          "label": "Distribució",
+          "status": "ok"
+        },
+        {
+          "id": "referencies.guia-visual",
+          "label": "Només com a guia visual",
+          "exclusive": true,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

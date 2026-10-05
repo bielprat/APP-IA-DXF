@@ -1,0 +1,83 @@
+{
+  "category": "cad-elements",
+  "label": "Què vols modelar?",
+  "groups": [
+    {
+      "id": "cad-elements.elements",
+      "title": "Què vols modelar?",
+      "mode": "multi",
+      "default": [
+        "cad-elements.parets",
+        "cad-elements.forjats",
+        "cad-elements.coberta",
+        "cad-elements.obertures"
+      ],
+      "min": 1,
+      "options": [
+        {
+          "id": "cad-elements.parets",
+          "label": "Parets i façanes",
+          "description": "Murs exteriors i interiors",
+          "icon": "wall",
+          "layer": "CR_PARETS",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.forjats",
+          "label": "Forjats i escales",
+          "description": "Plantes, rampes i escales",
+          "icon": "stairs",
+          "layer": "CR_FORJATS",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.coberta",
+          "label": "Coberta",
+          "description": "Forma, ràfecs i parapets",
+          "icon": "roof",
+          "layer": "CR_COBERTA",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.obertures",
+          "label": "Obertures i vidrieres",
+          "description": "Portes, finestres i vidrieres",
+          "icon": "window",
+          "layer": "CR_OBERTURES",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.estructura",
+          "label": "Estructura",
+          "description": "Pilars i bigues",
+          "icon": "column",
+          "layer": "CR_ESTRUCTURA",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.detalls",
+          "label": "Detalls exteriors",
+          "description": "Marquesines, accessos i baranes",
+          "icon": "canopy",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.topografia",
+          "label": "Topografia i urbanització",
+          "description": "Terreny, voreres i aparcament",
+          "icon": "landscape",
+          "layer": "CR_TOPOGRAFIA",
+          "status": "ok"
+        },
+        {
+          "id": "cad-elements.logos",
+          "label": "Logos i modulacions",
+          "description": "Es conserven forma i proporcions",
+          "icon": "logo",
+          "layer": "CR_LOGOS",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

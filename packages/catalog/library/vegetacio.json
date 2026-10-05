@@ -1,0 +1,156 @@
+{
+  "category": "biblioteca",
+  "label": "Etiquetes de la biblioteca de vegetació",
+  "groups": [
+    {
+      "id": "biblioteca.tipus",
+      "title": "Tipus de vegetació",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "biblioteca.arbres",
+          "label": "Arbres",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.arbustos",
+          "label": "Arbustos",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.gespa",
+          "label": "Gespa",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.fons",
+          "label": "Vegetació de fons",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.mixta",
+          "label": "Mixta",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    },
+    {
+      "id": "biblioteca.projecte",
+      "title": "Tipus de projecte",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "biblioteca.retail",
+          "label": "Retail",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.industrial",
+          "label": "Industrial",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.residencial",
+          "label": "Residencial",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.equipament",
+          "label": "Equipament",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    },
+    {
+      "id": "biblioteca.clima",
+      "title": "Clima",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "biblioteca.clima-mediterrani",
+          "label": "Mediterrani",
+          "status": "PENDENT_REVISIO"
+        },
+        {
+          "id": "biblioteca.clima-continental",
+          "label": "Continental",
+          "status": "PENDENT_REVISIO"
+        },
+        {
+          "id": "biblioteca.clima-muntanya",
+          "label": "Muntanya",
+          "status": "PENDENT_REVISIO"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    },
+    {
+      "id": "biblioteca.distancia",
+      "title": "Distància a càmera",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "biblioteca.primer-pla",
+          "label": "Primer pla",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.pla-mitja",
+          "label": "Pla mitjà",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.distancia-fons",
+          "label": "Fons",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    },
+    {
+      "id": "biblioteca.estil",
+      "title": "Estil",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "biblioteca.estil-mediterrania",
+          "label": "Mediterrània",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.estil-urbana",
+          "label": "Urbana",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.estil-industrial",
+          "label": "Industrial",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.estil-residencial",
+          "label": "Residencial",
+          "status": "ok"
+        },
+        {
+          "id": "biblioteca.estil-natural",
+          "label": "Natural",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    }
+  ]
+}

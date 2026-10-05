@@ -1,0 +1,37 @@
+{
+  "category": "cad-modes",
+  "label": "Quin tipus de model vols?",
+  "groups": [
+    {
+      "id": "cad-modes.mode",
+      "title": "Quin tipus de model vols?",
+      "mode": "single",
+      "default": [
+        "cad-modes.aproximat"
+      ],
+      "options": [
+        {
+          "id": "cad-modes.aproximat",
+          "label": "Model aproximat des d'imatges",
+          "icon": "image",
+          "description": "Per a imatges o renders sense plànols ni cotes. Les mesures s'estimen i es marquen.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-modes.precis",
+          "label": "Model precís des de plànols",
+          "icon": "ruler",
+          "description": "Amb plànols, alçats i cotes. Les cotes escrites manen sobre les gràfiques.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-modes.revisio",
+          "label": "Revisar la documentació",
+          "icon": "search",
+          "description": "Detecta contradiccions i dades que falten abans de modelar. Només genera un informe, cap fitxer.",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

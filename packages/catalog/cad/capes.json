@@ -1,0 +1,60 @@
+{
+  "layers": [
+    {
+      "name": "CR_ESTRUCTURA",
+      "label": "Estructura",
+      "color": "#ED7902",
+      "grayscale": "#3A3C3B",
+      "element": "cad-elements.estructura"
+    },
+    {
+      "name": "CR_PARETS",
+      "label": "Parets i façanes",
+      "color": "#707272",
+      "grayscale": "#707272",
+      "element": "cad-elements.parets"
+    },
+    {
+      "name": "CR_FORJATS",
+      "label": "Forjats",
+      "color": "#212121",
+      "grayscale": "#212121",
+      "element": "cad-elements.forjats"
+    },
+    {
+      "name": "CR_COBERTA",
+      "label": "Coberta",
+      "color": "#8A4B08",
+      "grayscale": "#5A5D5C",
+      "element": "cad-elements.coberta"
+    },
+    {
+      "name": "CR_OBERTURES",
+      "label": "Obertures i vidrieres",
+      "color": "#F2B84B",
+      "grayscale": "#B4B6B5",
+      "element": "cad-elements.obertures"
+    },
+    {
+      "name": "CR_TOPOGRAFIA",
+      "label": "Topografia",
+      "color": "#5E6B45",
+      "grayscale": "#8E9291",
+      "element": "cad-elements.topografia"
+    },
+    {
+      "name": "CR_URBANITZACIO",
+      "label": "Urbanització",
+      "color": "#B4BCC2",
+      "grayscale": "#D9DBDA",
+      "element": "cad-elements.topografia"
+    },
+    {
+      "name": "CR_LOGOS",
+      "label": "Logos i modulacions",
+      "color": "#A33B20",
+      "grayscale": "#4A4C4B",
+      "element": "cad-elements.logos"
+    }
+  ]
+}

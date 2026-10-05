@@ -1,0 +1,72 @@
+{
+  "category": "materials",
+  "label": "Materials",
+  "groups": [
+    {
+      "id": "materials.accions",
+      "title": "Què vols millorar dels materials?",
+      "mode": "multi",
+      "default": [
+        "materials.mantenir"
+      ],
+      "min": 1,
+      "options": [
+        {
+          "id": "materials.mantenir",
+          "label": "Mantenir originals",
+          "thumbnail": "neutral",
+          "exclusive": true,
+          "status": "ok"
+        },
+        {
+          "id": "materials.mes-detall",
+          "label": "Més detall",
+          "thumbnail": "linear-gradient(135deg,#D2D3D1,#A9ABA8)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.mes-rugositat",
+          "label": "Més rugositat",
+          "thumbnail": "linear-gradient(135deg,#C4C3BE,#8F8E88)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.menys-brillant",
+          "label": "Menys brillant",
+          "thumbnail": "linear-gradient(135deg,#D9D9D6,#B8B8B3)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.mes-natural",
+          "label": "Més natural",
+          "thumbnail": "linear-gradient(135deg,#CFC6B4,#A89C82)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.fusta",
+          "label": "Millorar fusta",
+          "thumbnail": "linear-gradient(135deg,#B88A5B,#8A6038)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.formigo",
+          "label": "Millorar formigó",
+          "thumbnail": "linear-gradient(135deg,#BDBDBB,#9A9A98)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.metall",
+          "label": "Millorar metall",
+          "thumbnail": "linear-gradient(135deg,#C4C7C9,#8E9396)",
+          "status": "ok"
+        },
+        {
+          "id": "materials.paviment",
+          "label": "Millorar paviment",
+          "thumbnail": "linear-gradient(135deg,#B9B8B4,#8C8B87)",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { MAIN_NAV, isNavItemActive, visibleNavItems } from "./navigation";
+import { CAD_STEPS, MAIN_NAV, RENDER_STEPS, currentStepIndex, isNavItemActive, visibleNavItems } from "./navigation";
 
 const byLabel = (label: string) => MAIN_NAV.find((item) => item.label === label)!;
 
@@ -21,5 +21,14 @@ describe("isNavItemActive", () => {
     expect(isNavItemActive(render, "/render/details")).toBe(true);
     expect(isNavItemActive(render, "/render")).toBe(true);
     expect(isNavItemActive(render, "/renderer")).toBe(false);
+  });
+});
+
+describe("currentStepIndex", () => {
+  it("finds static and dynamic steps", () => {
+    expect(currentStepIndex(RENDER_STEPS, "/render/details")).toBe(2);
+    expect(currentStepIndex(RENDER_STEPS, "/render/result/abc123")).toBe(4);
+    expect(currentStepIndex(CAD_STEPS, "/cad/result/draft")).toBe(4);
+    expect(currentStepIndex(CAD_STEPS, "/cad/upload")).toBe(0);
   });
 });

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { PhasePending } from "@/components/layout/PhasePending";
+import { VegetationLibraryView } from "@/features/library/VegetationLibraryView";
 import { requireUser } from "@/lib/auth/session";
 
 export const metadata: Metadata = { title: "Biblioteca de vegetació" };
@@ -19,8 +19,11 @@ export default async function VegetationLibraryPage() {
 
   return (
     <>
-      <PageHeader title="Biblioteca de vegetació" description="Referències etiquetades per a la millora de vegetació." />
-      <PhasePending phase={4} />
+      <PageHeader
+        title="Biblioteca de vegetació"
+        description="Imatges de referència d'alta qualitat. Quan un usuari tria millorar la vegetació, se'n seleccionen automàticament entre 1 i 3 segons les etiquetes."
+      />
+      <VegetationLibraryView />
     </>
   );
 }

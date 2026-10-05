@@ -1,0 +1,52 @@
+{
+  "category": "vidres",
+  "label": "Vidres",
+  "groups": [
+    {
+      "id": "vidres.accio",
+      "title": "Com vols els vidres?",
+      "mode": "single",
+      "default": [
+        "vidres.mantenir"
+      ],
+      "options": [
+        {
+          "id": "vidres.mantenir",
+          "label": "Mantenir originals",
+          "thumbnail": "neutral",
+          "status": "ok"
+        },
+        {
+          "id": "vidres.lleugerament-mes-foscos",
+          "label": "Lleugerament més foscos",
+          "thumbnail": "linear-gradient(135deg,#C9D3D8,#9FB0B8)",
+          "status": "ok"
+        },
+        {
+          "id": "vidres.mes-foscos",
+          "label": "Més foscos",
+          "thumbnail": "linear-gradient(135deg,#B3C0C6,#7F929B)",
+          "status": "ok"
+        },
+        {
+          "id": "vidres.mes-transparents",
+          "label": "Més transparents",
+          "thumbnail": "linear-gradient(135deg,#E6EDF0,#C8D6DC)",
+          "status": "ok"
+        },
+        {
+          "id": "vidres.mes-reflectants",
+          "label": "Més reflectants",
+          "thumbnail": "linear-gradient(135deg,#D3DEE3,#A3B8C1)",
+          "status": "ok"
+        },
+        {
+          "id": "vidres.mes-neutre",
+          "label": "Vidre més neutre",
+          "thumbnail": "linear-gradient(135deg,#D9DEE0,#BEC5C8)",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

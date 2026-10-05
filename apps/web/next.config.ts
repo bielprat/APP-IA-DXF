@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
+  transpilePackages: ["@cr/catalog"],
   outputFileTracingRoot: new URL("../..", import.meta.url).pathname,
 };
 

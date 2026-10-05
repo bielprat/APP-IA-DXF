@@ -1,0 +1,108 @@
+{
+  "category": "cad-format",
+  "label": "Format i generar",
+  "groups": [
+    {
+      "id": "cad-format.format",
+      "title": "Format del fitxer",
+      "mode": "single",
+      "default": [
+        "cad-format.dxf"
+      ],
+      "options": [
+        {
+          "id": "cad-format.dxf",
+          "label": "DXF 3D editable",
+          "recommended": true,
+          "description": "S'obre amb Allplan i AutoCAD.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.dwg",
+          "label": "DWG 3D",
+          "description": "Si no es pot verificar, es lliura un DXF compatible i s'indica com convertir-lo.",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "cad-format.geometria",
+      "title": "Tipus de geometria",
+      "mode": "single",
+      "default": [
+        "cad-format.solids"
+      ],
+      "options": [
+        {
+          "id": "cad-format.solids",
+          "label": "Sòlids",
+          "recommended": true,
+          "description": "Volums editables, lliurats com a malles tancades.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.superficies",
+          "label": "Superfícies",
+          "description": "Més lleugeres.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.malla",
+          "label": "Malla triangulada",
+          "description": "Per a topografia i formes irregulars.",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "cad-format.unitats",
+      "title": "Unitats",
+      "mode": "single",
+      "default": [
+        "cad-format.m"
+      ],
+      "options": [
+        {
+          "id": "cad-format.m",
+          "label": "Metres",
+          "short": "m",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.cm",
+          "label": "Centímetres",
+          "short": "cm",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.mm",
+          "label": "Mil·límetres",
+          "short": "mm",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "cad-format.coordenades",
+      "title": "Coordenades",
+      "mode": "single",
+      "default": [
+        "cad-format.reals"
+      ],
+      "options": [
+        {
+          "id": "cad-format.reals",
+          "label": "Conservar coordenades reals",
+          "description": "Quan existeixen als plànols.",
+          "status": "ok"
+        },
+        {
+          "id": "cad-format.origen",
+          "label": "Origen a (0, 0, 0)",
+          "description": "Model situat a l'origen.",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

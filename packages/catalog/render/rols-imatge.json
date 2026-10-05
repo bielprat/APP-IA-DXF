@@ -1,0 +1,35 @@
+{
+  "category": "rols-imatge",
+  "label": "Rol de la imatge",
+  "groups": [
+    {
+      "id": "rols-imatge.rol",
+      "title": "Rol de la imatge",
+      "mode": "single",
+      "default": [
+        "rols-imatge.referencia"
+      ],
+      "presentation": "chips",
+      "options": [
+        {
+          "id": "rols-imatge.base",
+          "label": "Imatge base",
+          "description": "És la que es millora. Només n'hi pot haver una.",
+          "status": "ok"
+        },
+        {
+          "id": "rols-imatge.referencia",
+          "label": "Referència",
+          "description": "Serveix de guia visual. No es copia la composició.",
+          "status": "ok"
+        },
+        {
+          "id": "rols-imatge.perspectiva",
+          "label": "Altra perspectiva",
+          "description": "Una vista diferent del mateix projecte, només com a consulta.",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

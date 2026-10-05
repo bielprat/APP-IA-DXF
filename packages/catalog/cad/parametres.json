@@ -1,0 +1,617 @@
+{
+  "category": "cad-parametres",
+  "label": "Com ha de dibuixar-ho la IA?",
+  "tabs": [
+    {
+      "id": "capes",
+      "label": "Capes i colors",
+      "note": "Cada sistema constructiu es dibuixa en una capa pròpia i amb un color diferent, perquè es pugui identificar i editar a Allplan o AutoCAD.",
+      "groups": [
+        {
+          "id": "cad-parametres.esquema",
+          "title": "Esquema de colors de les capes",
+          "mode": "single",
+          "default": [
+            "cad-parametres.esquema-sistema"
+          ],
+          "options": [
+            {
+              "id": "cad-parametres.esquema-sistema",
+              "label": "Per sistema constructiu",
+              "thumbnail": "linear-gradient(90deg,#ED7902 0 25%,#707272 25% 50%,#212121 50% 75%,#8A4B08 75%)",
+              "recommended": true,
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.esquema-element",
+              "label": "Per tipus d'element",
+              "thumbnail": "linear-gradient(90deg,#F2B84B 0 33%,#A33B20 33% 66%,#B4BCC2 66%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.esquema-planta",
+              "label": "Per planta",
+              "thumbnail": "linear-gradient(0deg,#8E9291 0 33%,#B4BCC2 33% 66%,#D9DBDA 66%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.esquema-grisos",
+              "label": "Escala de grisos",
+              "thumbnail": "linear-gradient(90deg,#212121 0 25%,#5A5D5C 25% 50%,#8E9291 50% 75%,#D9DBDA 75%)",
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "id": "cad-parametres.color-parets",
+          "title": "Color de les parets",
+          "mode": "single",
+          "default": [
+            "cad-parametres.parets-gris"
+          ],
+          "options": [
+            {
+              "id": "cad-parametres.parets-gris",
+              "label": "Gris",
+              "swatch": "#707272",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parets-blanc",
+              "label": "Blanc",
+              "swatch": "#F7F7F6",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parets-negre",
+              "label": "Negre",
+              "swatch": "#212121",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parets-taronja",
+              "label": "Taronja corporatiu",
+              "swatch": "#ED7902",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parets-beix",
+              "label": "Beix",
+              "swatch": "#D9C9A8",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parets-material",
+              "label": "Segons el material",
+              "thumbnail": "linear-gradient(135deg,#D9C9A8,#8E9291)",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alcades",
+      "label": "Alçades",
+      "note": "«Estimar» només s'usa quan no hi ha cota escrita. Aquestes mesures queden marcades com a estimades al lliurament i no es presenten com a mesures reals.",
+      "groups": [
+        {
+          "id": "cad-parametres.alcada-planta",
+          "title": "Alçada de planta",
+          "mode": "single",
+          "default": [
+            "cad-parametres.alcada-estimar"
+          ],
+          "defaultByMode": {
+            "cad-modes.precis": [
+              "cad-parametres.alcada-plans"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.alcada-plans",
+              "label": "Segons les cotes dels plànols",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.alcada-estimar",
+              "label": "Estimar des de la imatge",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.alcada-300",
+              "label": "3,00 m",
+              "thumbnail": "linear-gradient(0deg, #707272 60%, #F1F1F0 60%)",
+              "value": 3.0,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.alcada-350",
+              "label": "3,50 m",
+              "thumbnail": "linear-gradient(0deg, #707272 70%, #F1F1F0 70%)",
+              "value": 3.5,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.alcada-400",
+              "label": "4,00 m",
+              "thumbnail": "linear-gradient(0deg, #707272 80%, #F1F1F0 80%)",
+              "value": 4.0,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.alcada-450",
+              "label": "4,50 m",
+              "thumbnail": "linear-gradient(0deg, #707272 90%, #F1F1F0 90%)",
+              "value": 4.5,
+              "unit": "m",
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "id": "cad-parametres.parapet",
+          "title": "Parapet de coberta",
+          "mode": "single",
+          "default": [
+            "cad-parametres.parapet-segons"
+          ],
+          "options": [
+            {
+              "id": "cad-parametres.parapet-segons",
+              "label": "Segons imatge o plànols",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parapet-cap",
+              "label": "Sense parapet",
+              "thumbnail": "linear-gradient(0deg, #707272 0%, #F1F1F0 0%)",
+              "value": 0,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parapet-050",
+              "label": "0,50 m",
+              "thumbnail": "linear-gradient(0deg, #707272 25%, #F1F1F0 25%)",
+              "value": 0.5,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parapet-100",
+              "label": "1,00 m",
+              "thumbnail": "linear-gradient(0deg, #707272 50%, #F1F1F0 50%)",
+              "value": 1.0,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.parapet-150",
+              "label": "1,50 m",
+              "thumbnail": "linear-gradient(0deg, #707272 75%, #F1F1F0 75%)",
+              "value": 1.5,
+              "unit": "m",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gruixos",
+      "label": "Gruixos",
+      "note": "«Estimar» només s'usa quan no hi ha cota escrita. Aquestes mesures queden marcades com a estimades al lliurament i no es presenten com a mesures reals.",
+      "groups": [
+        {
+          "id": "cad-parametres.gruix-murs",
+          "title": "Gruix dels murs exteriors",
+          "mode": "single",
+          "default": [
+            "cad-parametres.murs-estimar"
+          ],
+          "defaultByMode": {
+            "cad-modes.precis": [
+              "cad-parametres.murs-plans"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.murs-plans",
+              "label": "Segons les cotes dels plànols",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.murs-estimar",
+              "label": "Estimar des de la imatge",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.murs-20",
+              "label": "20 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 25%, #F1F1F0 25%)",
+              "value": 0.2,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.murs-30",
+              "label": "30 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 37%, #F1F1F0 37%)",
+              "value": 0.3,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.murs-40",
+              "label": "40 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 50%, #F1F1F0 50%)",
+              "value": 0.4,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.murs-50",
+              "label": "50 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 62%, #F1F1F0 62%)",
+              "value": 0.5,
+              "unit": "m",
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "id": "cad-parametres.gruix-forjats",
+          "title": "Gruix de forjats i coberta",
+          "mode": "single",
+          "default": [
+            "cad-parametres.forjats-estimar"
+          ],
+          "defaultByMode": {
+            "cad-modes.precis": [
+              "cad-parametres.forjats-plans"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.forjats-plans",
+              "label": "Segons les cotes dels plànols",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.forjats-estimar",
+              "label": "Estimar des de la imatge",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.forjats-25",
+              "label": "25 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 30%, #F1F1F0 30%)",
+              "value": 0.25,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.forjats-30",
+              "label": "30 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 37%, #F1F1F0 37%)",
+              "value": 0.3,
+              "unit": "m",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.forjats-40",
+              "label": "40 cm",
+              "thumbnail": "linear-gradient(90deg, #707272 50%, #F1F1F0 50%)",
+              "value": 0.4,
+              "unit": "m",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "obertures",
+      "label": "Obertures",
+      "groups": [
+        {
+          "id": "cad-parametres.detall-obertures",
+          "title": "Nivell de detall de les obertures",
+          "mode": "single",
+          "default": [
+            "cad-parametres.obertures-perfileria"
+          ],
+          "options": [
+            {
+              "id": "cad-parametres.obertures-buits",
+              "label": "Només buits a la façana",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.obertures-vidre",
+              "label": "Buits i vidre",
+              "thumbnail": "linear-gradient(135deg,#C9D3D8,#9FB0B8)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.obertures-perfileria",
+              "label": "Buits, vidre i perfileria",
+              "thumbnail": "linear-gradient(135deg,#B3C0C6,#7F929B)",
+              "recommended": true,
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "id": "cad-parametres.modulacio",
+          "title": "Modulació de les vidrieres",
+          "mode": "single",
+          "default": [
+            "cad-parametres.modulacio-imatge"
+          ],
+          "defaultByMode": {
+            "cad-modes.precis": [
+              "cad-parametres.modulacio-plans"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.modulacio-imatge",
+              "label": "Segons la imatge",
+              "thumbnail": "linear-gradient(135deg,#DCE3E6,#B9C6CC)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.modulacio-plans",
+              "label": "Segons els plànols",
+              "thumbnail": "linear-gradient(135deg,#C9D3D8,#9FB0B8)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.modulacio-regular",
+              "label": "Regular, només si no n'hi ha de definida",
+              "thumbnail": "neutral",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "detalls",
+      "label": "Detalls exteriors",
+      "groups": [
+        {
+          "id": "cad-parametres.detalls",
+          "title": "Quins detalls exteriors vols?",
+          "mode": "multi",
+          "default": [
+            "cad-parametres.detalls-cap"
+          ],
+          "min": 1,
+          "defaultIfElement": {
+            "element": "cad-elements.detalls",
+            "default": []
+          },
+          "options": [
+            {
+              "id": "cad-parametres.detalls-cap",
+              "label": "Cap detall exterior",
+              "thumbnail": "neutral",
+              "exclusive": true,
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.marquesines",
+              "label": "Marquesines i voladissos",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.pilars-exteriors",
+              "label": "Pilars exteriors",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.rampes",
+              "label": "Rampes i escales d'accés",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.baranes",
+              "label": "Baranes i parapets",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.logos-retolacio",
+              "label": "Logos i retolació (volum i posició)",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.mobiliari",
+              "label": "Mobiliari exterior i jardineres",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.aparcament-marcatge",
+              "label": "Aparcament i marcatge",
+              "thumbnail": "neutral",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coberta",
+      "label": "Coberta",
+      "groups": [
+        {
+          "id": "cad-parametres.tipus-coberta",
+          "title": "Tipus de coberta",
+          "mode": "single",
+          "default": [
+            "cad-parametres.coberta-imatge"
+          ],
+          "defaultByMode": {
+            "cad-modes.precis": [
+              "cad-parametres.coberta-plans"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.coberta-imatge",
+              "label": "Segons la imatge",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.coberta-plana",
+              "label": "Plana",
+              "thumbnail": "linear-gradient(0deg,#707272 0 30%,#F1F1F0 30%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.coberta-una-aigua",
+              "label": "Una aigua",
+              "thumbnail": "linear-gradient(160deg,#F1F1F0 0 45%,#707272 45%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.coberta-doble-vessant",
+              "label": "Doble vessant",
+              "thumbnail": "linear-gradient(135deg,#F1F1F0 0 40%,#707272 40% 50%,#F1F1F0 50%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.coberta-plans",
+              "label": "Segons els plànols",
+              "thumbnail": "neutral",
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "id": "cad-parametres.elements-coberta",
+          "title": "Elements de coberta",
+          "mode": "multi",
+          "default": [
+            "cad-parametres.coberta-cap"
+          ],
+          "min": 1,
+          "options": [
+            {
+              "id": "cad-parametres.coberta-cap",
+              "label": "Cap element",
+              "thumbnail": "neutral",
+              "exclusive": true,
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.lluernaris",
+              "label": "Lluernaris",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.installacions",
+              "label": "Instal·lacions",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.rafecs",
+              "label": "Ràfecs i remats",
+              "thumbnail": "neutral",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.panells-solars",
+              "label": "Panells solars",
+              "thumbnail": "neutral",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entorn",
+      "label": "Entorn",
+      "note": "La topografia i la urbanització sempre es lliuren com a entitats separades i editables.",
+      "groups": [
+        {
+          "id": "cad-parametres.entorn",
+          "title": "Què més vols modelar de l'entorn?",
+          "mode": "multi",
+          "default": [
+            "cad-parametres.nomes-edifici"
+          ],
+          "min": 1,
+          "defaultIfElement": {
+            "element": "cad-elements.topografia",
+            "default": [
+              "cad-parametres.entorn-topografia"
+            ]
+          },
+          "options": [
+            {
+              "id": "cad-parametres.nomes-edifici",
+              "label": "Només l'edifici",
+              "thumbnail": "neutral",
+              "exclusive": true,
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.entorn-topografia",
+              "label": "Topografia",
+              "thumbnail": "linear-gradient(170deg,#F1F1F0 0 40%,#5E6B45 40%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.voreres-vialitat",
+              "label": "Voreres i vialitat",
+              "thumbnail": "linear-gradient(0deg,#B4BCC2 0 35%,#F1F1F0 35%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.entorn-aparcament",
+              "label": "Aparcament",
+              "thumbnail": "repeating-linear-gradient(90deg,#B4BCC2 0 18px,#F1F1F0 18px 22px)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.jardins",
+              "label": "Jardins i alcorques",
+              "thumbnail": "linear-gradient(0deg,#5E6B45 0 30%,#F1F1F0 30%)",
+              "status": "ok"
+            },
+            {
+              "id": "cad-parametres.tanques",
+              "label": "Tanques i tancaments",
+              "thumbnail": "neutral",
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

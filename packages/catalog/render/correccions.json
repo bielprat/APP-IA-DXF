@@ -1,0 +1,76 @@
+{
+  "category": "correccions",
+  "label": "Correccions ràpides",
+  "groups": [
+    {
+      "id": "correccions.rapides",
+      "title": "Correccions ràpides",
+      "mode": "multi",
+      "default": [],
+      "presentation": "chips",
+      "min": 0,
+      "options": [
+        {
+          "id": "correccions.vegetacio-poc-realista",
+          "label": "Vegetació poc realista",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.arbres-deformats",
+          "label": "Arbres deformats",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.falta-nitidesa",
+          "label": "Falta nitidesa",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.vidres-massa-clars",
+          "label": "Vidres massa clars",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.vidres-massa-foscos",
+          "label": "Vidres massa foscos",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.massa-llum",
+          "label": "Massa llum",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.massa-fosc",
+          "label": "Massa fosc",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.materials-poc-realistes",
+          "label": "Materials poc realistes",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.arquitectura-modificada",
+          "label": "S'ha modificat l'arquitectura",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.logo-modificat",
+          "label": "S'ha modificat un logo",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.recuperar-perspectiva",
+          "label": "Recuperar perspectiva original",
+          "status": "ok"
+        },
+        {
+          "id": "correccions.nomes-aquesta-zona",
+          "label": "Millorar només aquesta zona",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "category": "entorn",
+  "label": "Entorn",
+  "note": "Aquestes opcions no modifiquen la geometria urbana: vialitat, voreres, parcel·les ni edificis.",
+  "groups": [
+    {
+      "id": "entorn.accions",
+      "title": "Què vols millorar de l'entorn?",
+      "mode": "multi",
+      "default": [
+        "entorn.mantenir"
+      ],
+      "min": 1,
+      "options": [
+        {
+          "id": "entorn.mantenir",
+          "label": "Mantenir original",
+          "thumbnail": "neutral",
+          "exclusive": true,
+          "status": "ok"
+        },
+        {
+          "id": "entorn.paviment",
+          "label": "Millorar paviment",
+          "thumbnail": "linear-gradient(135deg,#B9B8B4,#8C8B87)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.voreres",
+          "label": "Millorar voreres",
+          "thumbnail": "linear-gradient(135deg,#CFCFCC,#A5A5A2)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.asfalt",
+          "label": "Millorar asfalt",
+          "thumbnail": "linear-gradient(135deg,#6F7271,#4A4C4B)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.mobiliari",
+          "label": "Millorar mobiliari urbà existent",
+          "thumbnail": "linear-gradient(135deg,#C4C7C9,#8E9396)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.edificis-fons",
+          "label": "Millorar edificis de fons",
+          "thumbnail": "linear-gradient(135deg,#D3D1CC,#A9A69E)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.cel",
+          "label": "Millorar cel",
+          "thumbnail": "linear-gradient(180deg,#8DB7E3,#EAF2FA)",
+          "status": "ok"
+        },
+        {
+          "id": "entorn.profunditat",
+          "label": "Millorar profunditat atmosfèrica",
+          "thumbnail": "linear-gradient(180deg,#C9D6E2,#F1F1F0)",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

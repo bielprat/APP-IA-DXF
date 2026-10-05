@@ -1,0 +1,64 @@
+{
+  "category": "illuminacio",
+  "label": "Il·luminació",
+  "groups": [
+    {
+      "id": "illuminacio.moment",
+      "title": "Quina il·luminació vols?",
+      "mode": "single",
+      "default": [
+        "illuminacio.mantenir"
+      ],
+      "options": [
+        {
+          "id": "illuminacio.mantenir",
+          "label": "Mantenir original",
+          "thumbnail": "neutral",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.mati",
+          "label": "Matí",
+          "thumbnail": "linear-gradient(180deg,#BFD3E6,#F6E2C6)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.migdia",
+          "label": "Migdia",
+          "thumbnail": "linear-gradient(180deg,#8DB7E3,#EAF2FA)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.16h",
+          "label": "16:00 h",
+          "thumbnail": "linear-gradient(180deg,#A9C6E4,#F4E3C4)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.hora-daurada",
+          "label": "Hora daurada",
+          "thumbnail": "linear-gradient(180deg,#F2B56B,#F8DDB0)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.capvespre",
+          "label": "Capvespre",
+          "thumbnail": "linear-gradient(180deg,#7A6A9A,#F0A06A)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.hora-blava",
+          "label": "Hora blava",
+          "thumbnail": "linear-gradient(180deg,#1F3A66,#5E7FAE)",
+          "status": "ok"
+        },
+        {
+          "id": "illuminacio.nit",
+          "label": "Nit",
+          "thumbnail": "linear-gradient(180deg,#0F1626,#2B3A58)",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

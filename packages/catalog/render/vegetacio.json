@@ -1,0 +1,139 @@
+{
+  "category": "vegetacio",
+  "label": "Vegetació",
+  "groups": [
+    {
+      "id": "vegetacio.accions",
+      "title": "Què vols millorar de la vegetació?",
+      "mode": "multi",
+      "default": [
+        "vegetacio.millorar-existent"
+      ],
+      "min": 1,
+      "options": [
+        {
+          "id": "vegetacio.mantenir",
+          "label": "Mantenir original",
+          "thumbnail": "linear-gradient(135deg,#C9D2BD,#A9B795)",
+          "exclusive": true,
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.millorar-existent",
+          "label": "Millorar existent",
+          "thumbnail": "linear-gradient(135deg,#B7C79A,#7F9A63)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.arbres",
+          "label": "Arbres",
+          "thumbnail": "linear-gradient(135deg,#A9B795,#6F8957)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.arbustos",
+          "label": "Arbustos",
+          "thumbnail": "linear-gradient(135deg,#BCCB9F,#8AA46C)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.gespa",
+          "label": "Gespa",
+          "thumbnail": "linear-gradient(135deg,#C4D1A8,#92AB74)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.fons",
+          "label": "Vegetació de fons",
+          "thumbnail": "linear-gradient(135deg,#B0BF98,#7C9660)",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "vegetacio.estil",
+      "title": "Estil de vegetació",
+      "mode": "single",
+      "default": [
+        "vegetacio.estil-original"
+      ],
+      "options": [
+        {
+          "id": "vegetacio.estil-mediterrania",
+          "label": "Mediterrània",
+          "thumbnail": "linear-gradient(135deg,#B7C79A,#7F9A63)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.estil-urbana",
+          "label": "Urbana",
+          "thumbnail": "linear-gradient(135deg,#BCCB9F,#8AA46C)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.estil-industrial",
+          "label": "Industrial",
+          "thumbnail": "linear-gradient(135deg,#C9D2BD,#A9B795)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.estil-residencial",
+          "label": "Residencial",
+          "thumbnail": "linear-gradient(135deg,#C4D1A8,#92AB74)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.estil-natural",
+          "label": "Natural",
+          "thumbnail": "linear-gradient(135deg,#A9B795,#6F8957)",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.estil-original",
+          "label": "Mantenir estil original",
+          "thumbnail": "neutral",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "id": "vegetacio.copiar",
+      "title": "Què vols copiar d'aquesta referència?",
+      "mode": "multi",
+      "default": [],
+      "presentation": "chips",
+      "options": [
+        {
+          "id": "vegetacio.copiar-qualitat",
+          "label": "Qualitat",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.copiar-fullatge",
+          "label": "Tipus de fullatge",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.copiar-densitat",
+          "label": "Densitat",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.copiar-color",
+          "label": "Color",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.copiar-naturalitat",
+          "label": "Naturalitat",
+          "status": "ok"
+        },
+        {
+          "id": "vegetacio.copiar-estil",
+          "label": "Estil general",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

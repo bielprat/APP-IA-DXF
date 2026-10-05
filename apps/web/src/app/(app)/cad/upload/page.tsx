@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { PhasePending } from "@/components/layout/PhasePending";
-import { Stepper } from "@/components/layout/Stepper";
+import { FlowHeader } from "@/components/flow/FlowHeader";
+import { UploadStep } from "@/features/cad/steps/UploadStep";
 import { CAD_STEPS } from "@/lib/navigation";
 
 export const metadata: Metadata = { title: "Pujar fonts" };
 
-export default function CadUploadPage() {
+export default function Page() {
   return (
     <>
-      <PageHeader
-        title="Modelatge 3D per a CAD"
-        description="Puja plànols, topografia, croquis o imatges i genera un DXF 3D editable organitzat per capes i colors."
-      >
-        <Stepper steps={CAD_STEPS} current={0} />
-      </PageHeader>
-      <PhasePending phase={1} />
+      <FlowHeader title="Modelatge 3D per a CAD" description="Puja plànols o imatges i prepararem un DXF 3D editable per a Allplan i AutoCAD." steps={CAD_STEPS} />
+      <UploadStep />
     </>
   );
 }

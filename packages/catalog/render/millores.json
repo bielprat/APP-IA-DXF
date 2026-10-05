@@ -1,0 +1,78 @@
+{
+  "category": "millores",
+  "label": "Què vols millorar?",
+  "groups": [
+    {
+      "id": "millores.categories",
+      "title": "Què vols millorar?",
+      "mode": "multi",
+      "default": [
+        "millores.fotorealisme"
+      ],
+      "min": 1,
+      "options": [
+        {
+          "id": "millores.fotorealisme",
+          "label": "Fotorealisme general",
+          "description": "Llum, ombres, reflexos i textures",
+          "icon": "sparkle",
+          "status": "ok"
+        },
+        {
+          "id": "millores.vegetacio",
+          "label": "Vegetació",
+          "description": "Arbres, arbustos i gespa",
+          "icon": "leaf",
+          "detailsCategory": "vegetacio",
+          "status": "ok"
+        },
+        {
+          "id": "millores.vidres",
+          "label": "Vidres",
+          "description": "Transparència i reflexos",
+          "icon": "glass",
+          "detailsCategory": "vidres",
+          "status": "ok"
+        },
+        {
+          "id": "millores.materials",
+          "label": "Materials",
+          "description": "Textura i detall dels acabats",
+          "icon": "layers",
+          "detailsCategory": "materials",
+          "status": "ok"
+        },
+        {
+          "id": "millores.illuminacio",
+          "label": "Il·luminació",
+          "description": "Hora del dia i ambient",
+          "icon": "sun",
+          "detailsCategory": "illuminacio",
+          "status": "ok"
+        },
+        {
+          "id": "millores.entorn",
+          "label": "Entorn",
+          "description": "Paviments, voreres i cel",
+          "icon": "landscape",
+          "detailsCategory": "entorn",
+          "status": "ok"
+        },
+        {
+          "id": "millores.interiors",
+          "label": "Interiors visibles",
+          "description": "El que es veu darrere les vidrieres",
+          "icon": "interior",
+          "status": "ok"
+        },
+        {
+          "id": "millores.resolucio",
+          "label": "Resolució i nitidesa",
+          "description": "Més claredat i detall",
+          "icon": "focus",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

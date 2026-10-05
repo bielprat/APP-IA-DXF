@@ -1,0 +1,51 @@
+{
+  "category": "projectes",
+  "label": "Filtres de projectes",
+  "groups": [
+    {
+      "id": "projectes.tipus",
+      "title": "Tipus",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "projectes.render",
+          "label": "Render IA",
+          "status": "ok"
+        },
+        {
+          "id": "projectes.model",
+          "label": "Model DXF 3D",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    },
+    {
+      "id": "projectes.estat",
+      "title": "Estat",
+      "mode": "multi",
+      "default": [],
+      "options": [
+        {
+          "id": "projectes.en-curs",
+          "label": "En curs",
+          "status": "ok"
+        },
+        {
+          "id": "projectes.aprovat",
+          "label": "Aprovat",
+          "status": "PENDENT_REVISIO"
+        },
+        {
+          "id": "projectes.lliurat",
+          "label": "Lliurat",
+          "status": "ok"
+        }
+      ],
+      "presentation": "chips",
+      "min": 0
+    }
+  ]
+}
