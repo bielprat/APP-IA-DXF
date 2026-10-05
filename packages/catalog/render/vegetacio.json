@@ -16,37 +16,37 @@
           "label": "Mantenir original",
           "thumbnail": "linear-gradient(135deg,#C9D2BD,#A9B795)",
           "exclusive": true,
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.millorar-existent",
           "label": "Millorar existent",
           "thumbnail": "linear-gradient(135deg,#B7C79A,#7F9A63)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.arbres",
           "label": "Arbres",
           "thumbnail": "linear-gradient(135deg,#A9B795,#6F8957)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.arbustos",
           "label": "Arbustos",
           "thumbnail": "linear-gradient(135deg,#BCCB9F,#8AA46C)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.gespa",
           "label": "Gespa",
           "thumbnail": "linear-gradient(135deg,#C4D1A8,#92AB74)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.fons",
           "label": "Vegetació de fons",
           "thumbnail": "linear-gradient(135deg,#B0BF98,#7C9660)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     },
@@ -62,37 +62,52 @@
           "id": "vegetacio.estil-mediterrania",
           "label": "Mediterrània",
           "thumbnail": "linear-gradient(135deg,#B7C79A,#7F9A63)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "vegetacio.estil-urbana",
           "label": "Urbana",
           "thumbnail": "linear-gradient(135deg,#BCCB9F,#8AA46C)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "vegetacio.estil-industrial",
           "label": "Industrial",
           "thumbnail": "linear-gradient(135deg,#C9D2BD,#A9B795)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "vegetacio.estil-residencial",
           "label": "Residencial",
           "thumbnail": "linear-gradient(135deg,#C4D1A8,#92AB74)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "vegetacio.estil-natural",
           "label": "Natural",
           "thumbnail": "linear-gradient(135deg,#A9B795,#6F8957)",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "vegetacio.estil-original",
           "label": "Mantenir estil original",
           "thumbnail": "neutral",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     },
@@ -106,32 +121,32 @@
         {
           "id": "vegetacio.copiar-qualitat",
           "label": "Qualitat",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.copiar-fullatge",
           "label": "Tipus de fullatge",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.copiar-densitat",
           "label": "Densitat",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.copiar-color",
           "label": "Color",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.copiar-naturalitat",
           "label": "Naturalitat",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "vegetacio.copiar-estil",
           "label": "Estil general",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     }

@@ -75,3 +75,19 @@ test("unsupported files are rejected with a clear message", async ({ page }) => 
   await page.locator('input[type="file"]').first().setInputFiles([{ name: "plànol.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF") }]);
   await expect(page.getByRole("alert").filter({ hasText: "no és un format acceptat" })).toBeVisible();
 });
+
+test("maximum fidelity explains which choices will not be applied", async ({ page }) => {
+  await loginAndOpen(page, "usuari@colomer-rifa.cat", "/render/upload", "Colomer-Rifà Render AI");
+  await page.locator('input[type="file"]').first().setInputFiles([imageFile("render.png")]);
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await page.getByRole("button", { name: /^Vegetació/ }).click();
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(page).toHaveURL(/\/render\/details$/);
+  await page.getByRole("button", { name: "Mediterrània", exact: true }).click();
+  await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(page).toHaveURL(/\/render\/generate$/);
+  await expect(page.getByText("«Mediterrània» no s'aplica amb Màxima fidelitat perquè pot alterar la composició.")).toBeVisible();
+  await page.getByRole("button", { name: /^Creatiu controlat/ }).click();
+  await expect(page.getByText("Algunes opcions no s'aplicaran")).toBeHidden();
+  await expect(page.getByText(/You are editing/)).toHaveCount(0);
+});

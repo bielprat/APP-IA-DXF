@@ -15,19 +15,19 @@
           "label": "Màxima fidelitat",
           "recommended": true,
           "description": "Només s'apliquen les millores que has triat. Si una millora pot alterar l'arquitectura, els logos, els materials o la composició, no s'aplica.",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "fidelitat.canvis-seleccionats",
           "label": "Fidelitat + canvis seleccionats",
           "description": "Es manté tot l'original excepte allò que triïs modificar de manera explícita.",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "fidelitat.creatiu-controlat",
           "label": "Creatiu controlat",
           "description": "Una mica més de llibertat visual només dins les categories triades. L'arquitectura principal no canvia.",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     }

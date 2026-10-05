@@ -1,3 +1,4 @@
+import type { RenderPromptInput } from "@cr/prompt-engine";
 import { detailsFor, getGroup, getOption, isGroupValid, renderCatalog, resolveGroup, toggleOption, type CatalogCategory, type Selection } from "@cr/catalog";
 
 export const ROLE_BASE = "rols-imatge.base";
@@ -123,8 +124,9 @@ export function baseImage(state: RenderFlowState): RenderImage | undefined {
   return state.images.find((image) => image.role === ROLE_BASE);
 }
 
+/** General references (vegetation references are configured in the «Detalls» tab instead). */
 export function referenceImages(state: RenderFlowState): RenderImage[] {
-  return state.images.filter((image) => image.role !== ROLE_BASE);
+  return state.images.filter((image) => image.role !== ROLE_BASE && image.vegetationCopy === null);
 }
 
 export function vegetationReferences(state: RenderFlowState): RenderImage[] {
@@ -227,4 +229,26 @@ export function restoreRenderState(raw: unknown): Partial<RenderFlowState> {
     restored.details = details;
   }
   return restored;
+}
+
+/**
+ * Input for the prompt engine. Images are attached to the generation in this order:
+ * base image, general references, vegetation references — matching the engine's numbering.
+ */
+export function toPromptInput(state: RenderFlowState, projectType: string | null = null): RenderPromptInput {
+  const details: Selection = {};
+  for (const tab of detailTabs(state)) {
+    for (const group of tab.groups) {
+      if (group.id !== VEGETATION_COPY_GROUP.id) details[group.id] = resolveGroup(state.details, group);
+    }
+  }
+  return {
+    projectType,
+    improvements: state.improvements,
+    details,
+    fidelity: state.fidelity,
+    references: referenceImages(state).map((image) => ({ purpose: image.purpose, take: image.take })),
+    vegetationReferences: vegetationReferences(state).map((image) => ({ copy: image.vegetationCopy ?? [] })),
+    userNotes: state.notes,
+  };
 }

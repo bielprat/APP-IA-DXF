@@ -13,6 +13,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/web/package.json apps/web/prisma.config.ts apps/web/
 COPY apps/web/prisma apps/web/prisma
 COPY packages/catalog/package.json packages/catalog/
+COPY packages/prompt-engine/package.json packages/prompt-engine/
 RUN if [ -s /usr/local/share/extra-ca.pem ]; then export NODE_EXTRA_CA_CERTS=/usr/local/share/extra-ca.pem; fi; \
     pnpm install --frozen-lockfile
 

@@ -13,62 +13,62 @@
         {
           "id": "correccions.vegetacio-poc-realista",
           "label": "Vegetació poc realista",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.arbres-deformats",
           "label": "Arbres deformats",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.falta-nitidesa",
           "label": "Falta nitidesa",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.vidres-massa-clars",
           "label": "Vidres massa clars",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.vidres-massa-foscos",
           "label": "Vidres massa foscos",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.massa-llum",
           "label": "Massa llum",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.massa-fosc",
           "label": "Massa fosc",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.materials-poc-realistes",
           "label": "Materials poc realistes",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.arquitectura-modificada",
           "label": "S'ha modificat l'arquitectura",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.logo-modificat",
           "label": "S'ha modificat un logo",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.recuperar-perspectiva",
           "label": "Recuperar perspectiva original",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "correccions.nomes-aquesta-zona",
           "label": "Millorar només aquesta zona",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     }

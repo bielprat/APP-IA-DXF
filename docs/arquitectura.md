@@ -15,6 +15,14 @@ Navegador ──► apps/web (Next.js) ──► PostgreSQL (Prisma, pg-boss)
   validades amb zod en carregar-se. Cada opció té un id estable `<categoria>.<slug>`, `exclusive`, `exclusiveWith`, `requires`,
   `unlocks`, `status` i, a partir de la fase 2, `promptFragment`. La lògica de selecció (exclusivitats, mínims, valors per
   defecte segons el mode CAD) és pura i té tests. `CATALOG_VERSION` es desarà amb cada treball.
+- **Fragments de prompt** (`packages/catalog/prompts/fragments.json`, entrada `@cr/catalog/prompts`, només servidor): es
+  copien literalment de `docs/ESPECIFICACIO_RENDER.md` i dels documents dels assistents amb `pnpm sync-fragments`; un test
+  falla si no coincideixen. Les opcions de la interfície no porten text de prompt.
+- **Motor de prompts** (`packages/prompt-engine`): mòdul pur i determinista. `buildRenderPrompt` compon el prompt en l'ordre
+  del §5.2 i aplica les regles (exclusivitats, valors per defecte, «Màxima fidelitat», entorn sense geometria, text lliure
+  netejat i limitat). `planRenderPasses` decideix si cal el procés de vegetació en dues passades. `buildCorrectionPrompt`
+  limita una correcció al seu abast. Retorna `{ prompt, usedFragments, warnings, engineVersion, catalogVersion }`. Tests de
+  regles i de snapshot.
 - **Fluxos** (`apps/web/src/features/render`, `features/cad`): l'estat de cada flux és un reducer pur amb tests. Les tries es
   conserven a `sessionStorage` durant la sessió; les imatges i els fitxers encara no surten del navegador (es pujaran al
   servidor a la fase 3).
@@ -40,7 +48,7 @@ Navegador ──► apps/web (Next.js) ──► PostgreSQL (Prisma, pg-boss)
 |---|---|---|
 | 0 | Monorepo, tokens, layout, autenticació amb rols, Docker, CI | ✅ |
 | 1 | Totes les pantalles amb catàlegs com a dades, sense IA | ✅ |
-| 2 | `prompt-engine` + catàleg de render + snapshots | Bloquejada per `docs/ESPECIFICACIO_RENDER.md` |
+| 2 | `prompt-engine` + catàleg de render + snapshots | ✅ (textos pendents de revisió) |
 | 3 | Pipeline de render (mock → real), màscares, logos, versions, comparador | Pendent |
 | 4 | Biblioteca de vegetació + selecció automàtica + QC vegetal | Pendent |
 | 5 | `cad-schema`, extracció, ezdxf, validador, nota tècnica, visor 3D | Pendent |

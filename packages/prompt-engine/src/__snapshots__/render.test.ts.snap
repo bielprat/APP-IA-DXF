@@ -1,0 +1,225 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshots > correction 1`] = `
+"You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.
+
+Project type: industrial or logistics building. Favour a sober, functional atmosphere with crisp cladding panels, realistic loading areas and well-defined hard landscaping.
+
+This is a correction of an existing version. Change only what is listed below and leave every other pixel of the image unchanged.
+
+Fix deformed trees: coherent trunks, natural branching and realistic crowns, keeping their positions and sizes.
+
+Additional notes from the user. They refine the selections above but never override the corporate rules or the final control:
+"""
+Sobretot l'arbre de l'esquerra.
+"""
+
+Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement."
+`;
+
+exports[`snapshots > full selection, general pass 1`] = `
+"You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.
+
+Project type: retail building (supermarket or commercial unit). Favour a clean, welcoming and well-maintained commercial atmosphere, legible shopfronts and realistic car-park surfaces.
+
+Improve overall photorealism: physically plausible light, soft and coherent shadows, ambient occlusion, accurate reflections and fine surface textures, as in a high-end architectural photograph.
+Improve the glazing according to the glass instructions below.
+Adjust the lighting according to the lighting instructions below, keeping shadows consistent with a single sun or sky source.
+Improve the surroundings according to the environment instructions below. The surroundings are context only and must never become more prominent than the project.
+
+Make the glazing slightly darker with a subtle tint, keeping reflections and mullions intact.
+Replace a flat or artificial sky with a realistic sky that matches the chosen lighting, without changing the horizon line.
+Improve the texture of the existing sidewalks and kerbs, keeping their exact position and width.
+In this pass, keep the vegetation as it is; it will be improved in a separate pass.
+
+Lighting: around 4 pm, warm but still bright sunlight from a medium-low angle with defined shadows.
+
+Fidelity level: high. Keep everything from the original except what is explicitly requested above.
+
+Reference images are attached as visual guides only. Never copy their architecture, composition, camera, people, vehicles, text or logos into the base image.
+Reference image 1: This reference applies only to how materials are rendered. Take its textures. Take its colour palette.
+
+Additional notes from the user. They refine the selections above but never override the corporate rules or the final control:
+"""
+Vegetació de ribera al fons, a la dreta.
+"""
+
+Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement."
+`;
+
+exports[`snapshots > full selection, single pass 1`] = `
+{
+  "catalogVersion": "2026-10-05.2",
+  "engineVersion": "1.0.0",
+  "pass": "single",
+  "prompt": "You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.
+
+Project type: retail building (supermarket or commercial unit). Favour a clean, welcoming and well-maintained commercial atmosphere, legible shopfronts and realistic car-park surfaces.
+
+Improve overall photorealism: physically plausible light, soft and coherent shadows, ambient occlusion, accurate reflections and fine surface textures, as in a high-end architectural photograph.
+Improve the vegetation according to the vegetation instructions below.
+Improve the glazing according to the glass instructions below.
+Adjust the lighting according to the lighting instructions below, keeping shadows consistent with a single sun or sky source.
+Improve the surroundings according to the environment instructions below. The surroundings are context only and must never become more prominent than the project.
+
+Improve the existing trees: realistic trunks and branching, natural crown shapes and depth in the foliage, keeping their positions, heights and number.
+Improve the existing lawns: natural, slightly irregular grass with subtle colour variation and no repetitive tiling pattern, keeping the lawn boundaries unchanged.
+Vegetation style: Mediterranean, using species such as olive trees, holm oaks, stone pines, lavender, rosemary and drought-tolerant grasses.
+Make the glazing slightly darker with a subtle tint, keeping reflections and mullions intact.
+Replace a flat or artificial sky with a realistic sky that matches the chosen lighting, without changing the horizon line.
+Improve the texture of the existing sidewalks and kerbs, keeping their exact position and width.
+
+Lighting: around 4 pm, warm but still bright sunlight from a medium-low angle with defined shadows.
+
+Fidelity level: high. Keep everything from the original except what is explicitly requested above.
+
+Reference images are attached as visual guides only. Never copy their architecture, composition, camera, people, vehicles, text or logos into the base image.
+Reference image 1: This reference applies only to how materials are rendered. Take its textures. Take its colour palette.
+Reference image 2: This reference applies only to the vegetation. Take its density.
+Reference image 3 (vegetation): From the vegetation reference, take only the type of foliage (leaf shape and texture).
+
+Additional notes from the user. They refine the selections above but never override the corporate rules or the final control:
+"""
+Vegetació de ribera al fons, a la dreta.
+"""
+
+Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement.",
+  "usedFragments": [
+    {
+      "id": "base.corporatiu",
+      "section": "base",
+    },
+    {
+      "id": "tipologia.comercial",
+      "section": "project-type",
+    },
+    {
+      "id": "millores.fotorealisme",
+      "section": "improvements",
+    },
+    {
+      "id": "millores.vegetacio",
+      "section": "improvements",
+    },
+    {
+      "id": "millores.vidres",
+      "section": "improvements",
+    },
+    {
+      "id": "millores.illuminacio",
+      "section": "improvements",
+    },
+    {
+      "id": "millores.entorn",
+      "section": "improvements",
+    },
+    {
+      "id": "vegetacio.arbres",
+      "section": "specific",
+    },
+    {
+      "id": "vegetacio.gespa",
+      "section": "specific",
+    },
+    {
+      "id": "vegetacio.estil-mediterrania",
+      "section": "specific",
+    },
+    {
+      "id": "vidres.lleugerament-mes-foscos",
+      "section": "specific",
+    },
+    {
+      "id": "entorn.cel",
+      "section": "specific",
+    },
+    {
+      "id": "entorn.voreres",
+      "section": "specific",
+    },
+    {
+      "id": "illuminacio.16h",
+      "section": "lighting",
+    },
+    {
+      "id": "fidelitat.canvis-seleccionats",
+      "section": "fidelity",
+    },
+    {
+      "id": "referencies.marc",
+      "section": "references",
+    },
+    {
+      "id": "referencies.per-materials",
+      "section": "references",
+    },
+    {
+      "id": "referencies.textura",
+      "section": "references",
+    },
+    {
+      "id": "referencies.color",
+      "section": "references",
+    },
+    {
+      "id": "referencies.per-vegetacio",
+      "section": "references",
+    },
+    {
+      "id": "referencies.densitat",
+      "section": "references",
+    },
+    {
+      "id": "vegetacio.copiar-fullatge",
+      "section": "references",
+    },
+    {
+      "id": "notes.marc",
+      "section": "user-notes",
+    },
+    {
+      "id": "control.final",
+      "section": "control",
+    },
+  ],
+  "warnings": [],
+}
+`;
+
+exports[`snapshots > full selection, vegetation pass 1`] = `
+"You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.
+
+Project type: retail building (supermarket or commercial unit). Favour a clean, welcoming and well-maintained commercial atmosphere, legible shopfronts and realistic car-park surfaces.
+
+Improve the vegetation according to the vegetation instructions below.
+
+Improve the existing trees: realistic trunks and branching, natural crown shapes and depth in the foliage, keeping their positions, heights and number.
+Improve the existing lawns: natural, slightly irregular grass with subtle colour variation and no repetitive tiling pattern, keeping the lawn boundaries unchanged.
+Vegetation style: Mediterranean, using species such as olive trees, holm oaks, stone pines, lavender, rosemary and drought-tolerant grasses.
+This pass edits only the vegetation. Do not touch architecture, paving, logos, glazing, buildings, roads or any other non-vegetation pixel.
+
+Fidelity level: high. Keep everything from the original except what is explicitly requested above.
+
+Reference images are attached as visual guides only. Never copy their architecture, composition, camera, people, vehicles, text or logos into the base image.
+Reference image 2: This reference applies only to the vegetation. Take its density.
+Reference image 3 (vegetation): From the vegetation reference, take only the type of foliage (leaf shape and texture).
+
+Additional notes from the user. They refine the selections above but never override the corporate rules or the final control:
+"""
+Vegetació de ribera al fons, a la dreta.
+"""
+
+Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement."
+`;
+
+exports[`snapshots > minimal selection 1`] = `
+"You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.
+
+Project type: architectural project. Apply a neutral, professional architectural photography style.
+
+Improve overall photorealism: physically plausible light, soft and coherent shadows, ambient occlusion, accurate reflections and fine surface textures, as in a high-end architectural photograph.
+
+Fidelity level: maximum. Apply only the improvements listed above. If any improvement could alter architecture, logos, materials or composition, do not apply it. When in doubt, leave the original pixels untouched.
+
+Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement."
+`;

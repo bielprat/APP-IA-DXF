@@ -1,0 +1,781 @@
+{
+  "fragments": [
+    {
+      "id": "base.corporatiu",
+      "title": "Prompt base",
+      "text": "You are editing an architectural render produced by Colomer-Rifà, an architecture and engineering firm. Improve the visual quality of the provided base image so it reads as a professional, photorealistic architectural photograph, while keeping the project exactly as designed. The base image is the single source of truth: preserve the building geometry and volumes, every window, door, pillar, canopy, access, roof and façade module, the urban layout (roads, kerbs, sidewalks, parking bays and plots), the camera position, focal length, perspective and framing, and every logo, sign and lettering. Logos and signage of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT are untouchable: never redraw, restyle, move, resize, translate or regenerate them. Do not add, remove or move architectural elements, people, vehicles, text or watermarks unless explicitly requested below.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.comercial",
+      "title": "Comercial / supermercat",
+      "text": "Project type: retail building (supermarket or commercial unit). Favour a clean, welcoming and well-maintained commercial atmosphere, legible shopfronts and realistic car-park surfaces.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.industrial",
+      "title": "Industrial / logística",
+      "text": "Project type: industrial or logistics building. Favour a sober, functional atmosphere with crisp cladding panels, realistic loading areas and well-defined hard landscaping.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.residencial",
+      "title": "Residencial",
+      "text": "Project type: residential building. Favour a calm, liveable atmosphere with natural light, believable domestic details behind the glazing and soft landscaping.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.equipament",
+      "title": "Equipament públic",
+      "text": "Project type: public facility. Favour a civic, open and accessible atmosphere with durable materials and clear pedestrian spaces.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.oficines",
+      "title": "Oficines",
+      "text": "Project type: office building. Favour a contemporary, professional atmosphere with precise curtain walls and orderly exterior spaces.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.estacio-servei",
+      "title": "Estació de servei",
+      "text": "Project type: fuel or service station. Keep canopy, pumps, price totems and forecourt markings exactly as designed and render them with clean, realistic finishes.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.concessionari",
+      "title": "Concessionari de vehicles",
+      "text": "Project type: car dealership. Keep the brand portal, showroom glazing and display areas exactly as designed, with high-quality reflections and spotless surfaces.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "tipologia.altres",
+      "title": "Altres / no detectada",
+      "text": "Project type: architectural project. Apply a neutral, professional architectural photography style.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.fotorealisme",
+      "title": "Fotorealisme general",
+      "text": "Improve overall photorealism: physically plausible light, soft and coherent shadows, ambient occlusion, accurate reflections and fine surface textures, as in a high-end architectural photograph.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.vegetacio",
+      "title": "Vegetació",
+      "text": "Improve the vegetation according to the vegetation instructions below.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.vidres",
+      "title": "Vidres",
+      "text": "Improve the glazing according to the glass instructions below.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.materials",
+      "title": "Materials",
+      "text": "Improve how the existing materials are rendered according to the material instructions below, without changing any material, colour or finish choice.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.illuminacio",
+      "title": "Il·luminació",
+      "text": "Adjust the lighting according to the lighting instructions below, keeping shadows consistent with a single sun or sky source.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.entorn",
+      "title": "Entorn",
+      "text": "Improve the surroundings according to the environment instructions below. The surroundings are context only and must never become more prominent than the project.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.interiors",
+      "title": "Interiors visibles",
+      "text": "Make the interiors visible through the glazing believable: subtle depth, soft interior lighting and plausible, uncluttered furnishing that matches the building use, without adding text, logos or people.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "millores.resolucio",
+      "title": "Resolució i nitidesa",
+      "text": "Increase perceived resolution and sharpness: crisp edges, clean fine details and no noise, halos, oversharpening or compression artefacts.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.mantenir",
+      "title": "Mantenir original",
+      "text": "Keep the existing vegetation exactly as it is: same species, positions, sizes and density.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.millorar-existent",
+      "title": "Millorar existent",
+      "text": "Make the existing vegetation photorealistic: natural foliage, realistic trunks and branches, varied leaf tones and natural light through the canopy, keeping every plant in its current position and size.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.arbres",
+      "title": "Arbres",
+      "text": "Improve the existing trees: realistic trunks and branching, natural crown shapes and depth in the foliage, keeping their positions, heights and number.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.arbustos",
+      "title": "Arbustos",
+      "text": "Improve the existing shrubs and planters: natural volume, varied leaves and clean planter edges, keeping their positions and footprint.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.gespa",
+      "title": "Gespa",
+      "text": "Improve the existing lawns: natural, slightly irregular grass with subtle colour variation and no repetitive tiling pattern, keeping the lawn boundaries unchanged.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.fons",
+      "title": "Vegetació de fons",
+      "text": "Improve the background vegetation so it adds depth: softer, less detailed and slightly hazier than the foreground, never competing with the building.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-mediterrania",
+      "title": "Mediterrània",
+      "text": "Vegetation style: Mediterranean, using species such as olive trees, holm oaks, stone pines, lavender, rosemary and drought-tolerant grasses.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-urbana",
+      "title": "Urbana",
+      "text": "Vegetation style: urban, using street trees such as plane trees, hackberries and lindens in tree pits, with neat, low-maintenance planting.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-industrial",
+      "title": "Industrial",
+      "text": "Vegetation style: industrial, using sparse, robust and low-maintenance planting with gravel areas, hardy shrubs and a few well-spaced trees.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-residencial",
+      "title": "Residencial",
+      "text": "Vegetation style: residential, using gardens with mixed shrubs, flowering plants, hedges and well-kept lawns.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-natural",
+      "title": "Natural",
+      "text": "Vegetation style: natural, using native species of Central Catalonia (holm oaks, oaks, pines, boxwood) with a wild, unmanicured look.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.estil-original",
+      "title": "Mantenir estil original",
+      "text": "Keep the current vegetation style and species.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-qualitat",
+      "title": "Qualitat",
+      "text": "From the vegetation reference, take only the level of realism and detail of the plants.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-fullatge",
+      "title": "Tipus de fullatge",
+      "text": "From the vegetation reference, take only the type of foliage (leaf shape and texture).",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-densitat",
+      "title": "Densitat",
+      "text": "From the vegetation reference, take only how dense the planting is, applied to the existing planted areas.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-color",
+      "title": "Color",
+      "text": "From the vegetation reference, take only the colour palette of the plants.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-naturalitat",
+      "title": "Naturalitat",
+      "text": "From the vegetation reference, take only how natural and irregular the plants look.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio.copiar-estil",
+      "title": "Estil general",
+      "text": "From the vegetation reference, take only the overall planting style, never its layout or composition.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.mantenir",
+      "title": "Mantenir originals",
+      "text": "Keep the glazing exactly as it is: same tint, transparency and reflections.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.lleugerament-mes-foscos",
+      "title": "Lleugerament més foscos",
+      "text": "Make the glazing slightly darker with a subtle tint, keeping reflections and mullions intact.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.mes-foscos",
+      "title": "Més foscos",
+      "text": "Make the glazing noticeably darker, as solar-control glass, keeping mullions and frames clearly visible.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.mes-transparents",
+      "title": "Més transparents",
+      "text": "Make the glazing more transparent so the interior is partly visible, with soft and plausible interior light.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.mes-reflectants",
+      "title": "Més reflectants",
+      "text": "Make the glazing more reflective, showing a coherent reflection of the sky and surroundings consistent with the camera position.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vidres.mes-neutre",
+      "title": "Vidre més neutre",
+      "text": "Make the glazing colour-neutral, removing any blue or green cast while keeping natural reflections.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.mantenir",
+      "title": "Mantenir original",
+      "text": "Keep the original lighting: same time of day, sun direction and shadow length.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.mati",
+      "title": "Matí",
+      "text": "Lighting: clear morning, soft and slightly cool sunlight from a low angle with long, gentle shadows.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.migdia",
+      "title": "Migdia",
+      "text": "Lighting: midday, bright and neutral sunlight from a high angle with short, crisp shadows.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.16h",
+      "title": "16:00 h",
+      "text": "Lighting: around 4 pm, warm but still bright sunlight from a medium-low angle with defined shadows.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.hora-daurada",
+      "title": "Hora daurada",
+      "text": "Lighting: golden hour, warm low sunlight with long shadows and a soft glow on the façades.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.capvespre",
+      "title": "Capvespre",
+      "text": "Lighting: dusk, the sun just below the horizon, warm sky gradient, interior and exterior lights starting to turn on.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.hora-blava",
+      "title": "Hora blava",
+      "text": "Lighting: blue hour, deep blue sky, interior lights clearly on and warm, exterior lighting balanced with the sky.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "illuminacio.nit",
+      "title": "Nit",
+      "text": "Lighting: night, dark sky, the building lit by its own interior and exterior lighting only, with realistic light falloff and no light pollution haze.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.mantenir",
+      "title": "Mantenir originals",
+      "text": "Keep every material exactly as it is.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.mes-detall",
+      "title": "Més detall",
+      "text": "Add fine, realistic detail to the existing materials: joints, subtle imperfections and micro-texture at the correct scale.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.mes-rugositat",
+      "title": "Més rugositat",
+      "text": "Increase the surface roughness of the existing materials where appropriate, reducing a plastic or CGI look.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.menys-brillant",
+      "title": "Menys brillant",
+      "text": "Reduce excessive gloss and specular highlights on opaque materials, keeping glass and metal reflections natural.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.mes-natural",
+      "title": "Més natural",
+      "text": "Make the existing materials look more natural, with slight weathering and tonal variation consistent with a recently finished building.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.fusta",
+      "title": "Millorar fusta",
+      "text": "Improve the existing wood: realistic grain, natural tone variation and correct board or slat scale, without changing its colour or orientation.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.formigo",
+      "title": "Millorar formigó",
+      "text": "Improve the existing concrete: realistic formwork marks, tie holes where already present and subtle tonal variation, without changing its colour.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.metall",
+      "title": "Millorar metall",
+      "text": "Improve the existing metal: accurate panel joints, realistic reflections and a correct anodised or painted finish, without changing its colour.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "materials.paviment",
+      "title": "Millorar paviment",
+      "text": "Improve the existing paving: realistic joints, texture and subtle wear, keeping its pattern, colours and layout.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.mantenir",
+      "title": "Mantenir original",
+      "text": "Keep the surroundings exactly as they are.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.paviment",
+      "title": "Millorar paviment",
+      "text": "Improve the texture of the existing exterior paving, keeping its layout and joints pattern.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.voreres",
+      "title": "Millorar voreres",
+      "text": "Improve the texture of the existing sidewalks and kerbs, keeping their exact position and width.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.asfalt",
+      "title": "Millorar asfalt",
+      "text": "Improve the existing asphalt with realistic texture and subtle wear, keeping all road markings and parking lines exactly where they are.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.mobiliari",
+      "title": "Millorar mobiliari urbà existent",
+      "text": "Improve the existing street furniture (benches, bollards, lamp posts, bins) with realistic materials, without adding, removing or moving any piece.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.edificis-fons",
+      "title": "Millorar edificis de fons",
+      "text": "Improve the realism of the existing background buildings, keeping their volumes and positions and keeping them visually secondary.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.cel",
+      "title": "Millorar cel",
+      "text": "Replace a flat or artificial sky with a realistic sky that matches the chosen lighting, without changing the horizon line.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "entorn.profunditat",
+      "title": "Millorar profunditat atmosfèrica",
+      "text": "Add subtle atmospheric perspective: distant elements slightly hazier and less saturated, improving depth.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "fidelitat.maxima",
+      "title": "Màxima fidelitat",
+      "text": "Fidelity level: maximum. Apply only the improvements listed above. If any improvement could alter architecture, logos, materials or composition, do not apply it. When in doubt, leave the original pixels untouched.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "fidelitat.canvis-seleccionats",
+      "title": "Fidelitat + canvis seleccionats",
+      "text": "Fidelity level: high. Keep everything from the original except what is explicitly requested above.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "fidelitat.creatiu-controlat",
+      "title": "Creatiu controlat",
+      "text": "Fidelity level: controlled creativity. Allow slightly more visual freedom only within the requested categories; the main architecture, camera, materials and logos remain unchanged.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.marc",
+      "title": "Marc de les referències",
+      "text": "Reference images are attached as visual guides only. Never copy their architecture, composition, camera, people, vehicles, text or logos into the base image.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-vegetacio",
+      "title": "Vegetació",
+      "text": "This reference applies only to the vegetation.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-materials",
+      "title": "Materials",
+      "text": "This reference applies only to how materials are rendered.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-illuminacio",
+      "title": "Il·luminació",
+      "text": "This reference applies only to the lighting and mood.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-entorn",
+      "title": "Entorn",
+      "text": "This reference applies only to the surroundings.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-interior",
+      "title": "Interior",
+      "text": "This reference applies only to the interiors visible through the glazing.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.per-perspectiva",
+      "title": "Altra perspectiva",
+      "text": "This reference is another view of the same project: use it only to understand the design, never to change the camera of the base image.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.qualitat",
+      "title": "Qualitat",
+      "text": "Take its level of realism.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.color",
+      "title": "Color",
+      "text": "Take its colour palette.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.textura",
+      "title": "Textura",
+      "text": "Take its textures.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.ambient",
+      "title": "Ambient",
+      "text": "Take its overall mood.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.tipus",
+      "title": "Tipus",
+      "text": "Take the type of elements it shows.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.densitat",
+      "title": "Densitat",
+      "text": "Take its density.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.distribucio",
+      "title": "Distribució",
+      "text": "Take how elements are distributed.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "referencies.guia-visual",
+      "title": "Només com a guia visual",
+      "text": "Use it only as a general visual guide, without taking any specific attribute.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "notes.marc",
+      "title": "Marc de les indicacions",
+      "text": "Additional notes from the user. They refine the selections above but never override the corporate rules or the final control:",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "control.final",
+      "title": "Control final",
+      "text": "Final check before returning the image. Resolve any conflict with this priority: explicit user instruction, architectural fidelity, camera and framing, materials, logos and brands, form selections, project type preset, photographic style; no instruction may override the corporate rules. The output must have the same framing and aspect ratio as the base image. Architecture, volumes, openings, roof, structure, urban layout, camera and perspective must be identical to the base image. Logos, signs and lettering must be pixel-faithful. Do not add text, watermarks, people, vehicles or new buildings. If a requested improvement conflicts with any of these rules, skip that improvement.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio-proces.fase-1",
+      "title": "Fase 1",
+      "text": "In this pass, keep the vegetation as it is; it will be improved in a separate pass.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "vegetacio-proces.fase-2",
+      "title": "Fase 2",
+      "text": "This pass edits only the vegetation. Do not touch architecture, paving, logos, glazing, buildings, roads or any other non-vegetation pixel.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccio.abast",
+      "title": "Abast de la correcció",
+      "text": "This is a correction of an existing version. Change only what is listed below and leave every other pixel of the image unchanged.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.vegetacio-poc-realista",
+      "title": "Vegetació poc realista",
+      "text": "Make the vegetation more realistic: natural foliage, real trunks and branching, no CGI look.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.arbres-deformats",
+      "title": "Arbres deformats",
+      "text": "Fix deformed trees: coherent trunks, natural branching and realistic crowns, keeping their positions and sizes.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.falta-nitidesa",
+      "title": "Falta nitidesa",
+      "text": "Increase sharpness and fine detail without halos, noise or oversharpening.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.vidres-massa-clars",
+      "title": "Vidres massa clars",
+      "text": "Make the glazing slightly darker and more realistic.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.vidres-massa-foscos",
+      "title": "Vidres massa foscos",
+      "text": "Make the glazing slightly lighter and more transparent, keeping natural reflections.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.massa-llum",
+      "title": "Massa llum",
+      "text": "Reduce overall exposure and blown highlights, recovering detail in bright areas.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.massa-fosc",
+      "title": "Massa fosc",
+      "text": "Increase overall exposure and lift shadows, recovering detail in dark areas without flattening contrast.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.materials-poc-realistes",
+      "title": "Materials poc realistes",
+      "text": "Make the materials more realistic: correct texture scale, natural roughness and subtle imperfections, without changing them.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.arquitectura-modificada",
+      "title": "S'ha modificat l'arquitectura",
+      "text": "Restore the architecture exactly as in the original base image: geometry, volumes, openings, roof and structure.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.logo-modificat",
+      "title": "S'ha modificat un logo",
+      "text": "Restore every logo, sign and lettering exactly as in the original base image.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.recuperar-perspectiva",
+      "title": "Recuperar perspectiva original",
+      "text": "Restore the original camera position, perspective and framing of the base image.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "correccions.nomes-aquesta-zona",
+      "title": "Millorar només aquesta zona",
+      "text": "Apply the improvement only inside the marked area and keep everything outside it unchanged.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/ESPECIFICACIO_RENDER.md"
+    },
+    {
+      "id": "assistent-renders.rol",
+      "title": "Rol del sistema",
+      "text": "You are the render quality assistant of Colomer-Rifà, an architecture and engineering firm based in Vic and Olot. You support an internal tool that improves architectural renders with an image-editing model. Your priorities, in order, are: fidelity to the project, visual quality, realism and, last, creativity. You never design new architecture: the tool only improves existing projects visually. You always answer with JSON that matches the schema you are given, with no extra prose.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_RENDERS.md"
+    },
+    {
+      "id": "assistent-renders.fidelitat",
+      "title": "Regles de fidelitat",
+      "text": "Treat the base image as the single source of truth. Building geometry and volumes, windows, doors, pillars, accesses, roof, urban layout (roads, kerbs, sidewalks, parking bays, plots), camera, perspective and framing must stay identical. Logos, signs and lettering, especially those of Bonpreu, Esclat, Esclat Oil, Cupra and SEAT, are untouchable. Report any doubt instead of hiding it.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_RENDERS.md"
+    },
+    {
+      "id": "assistent-renders.analisi",
+      "title": "Anàlisi",
+      "text": "Analyse the base render. Return: projectType (one of comercial, industrial, residencial, equipament, oficines, estacio-servei, concessionari, altres) with a confidence between 0 and 1; which elements are present (vegetation, glazing, logos, signs, visible interiors, people, vehicles); the camera distance of the main vegetation (foreground, midground, background); and protectedRegions: one bounding box per logo, sign or lettering, in pixel coordinates of the base image, each with a label and a brand when recognisable. Be conservative: if unsure whether something is a logo or a sign, include it.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_RENDERS.md"
+    },
+    {
+      "id": "assistent-renders.qc",
+      "title": "Control de qualitat general",
+      "text": "Compare the base image and the result. Check each item and report ok, deviation or unsure, with the affected region as a bounding box when there is a deviation: geometry, volumes, windows, doors, pillars, accesses, roof, roads, parking, logos, signs, perspective and framing. Also report whether the aspect ratio and framing match. Never mark an item ok when you cannot verify it; use unsure.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_RENDERS.md"
+    },
+    {
+      "id": "assistent-renders.qc-vegetal",
+      "title": "Control de qualitat de la vegetació",
+      "text": "Inspect only the vegetation in the result, comparing it with the base image. Report each problem with a bounding box: deformed trunks, duplicated trees, artificial crowns, blurry foliage, impossible branches, trees merged with buildings, excessive noise, background vegetation too sharp, repetitive lawn, cut-off trees, and unauthorised position changes. Return an empty list when there are no problems.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_RENDERS.md"
+    },
+    {
+      "id": "assistent-cad.rol",
+      "title": "Rol del sistema",
+      "text": "You are the 3D CAD modelling specialist of Colomer-Rifà, an architecture and engineering firm. From plans, elevations, sections, topography, sketches or images you produce a structured building model as JSON that matches the schema you are given. You never write DXF or DWG. You model only what the documentation defines; you never design new architecture. Every numeric value carries its source: plan_dimension (a written dimension), plan_graphic (measured on a drawing), image_estimate (inferred from an image) or user_choice (a value the user selected). Estimated values are flagged with estimated: true.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_CAD.md"
+    },
+    {
+      "id": "assistent-cad.mode-aproximat",
+      "title": "Model aproximat des d'imatges",
+      "text": "Mode: approximate model from images. Do not refuse the task because there are no plans. Infer the volumetry with plausible dimensions and flag every measurement as image_estimate with estimated: true. Ask a question only if an ambiguity prevents defining the main volumetry.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_CAD.md"
+    },
+    {
+      "id": "assistent-cad.mode-precis",
+      "title": "Model precís des de plànols",
+      "text": "Mode: precise model from plans. A written dimension always prevails over a graphic measurement. Do not replace missing data with usual standards unless the user authorised it explicitly through a parameter (for example a chosen floor height); in that case use user_choice. Missing data must be listed, not invented.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_CAD.md"
+    },
+    {
+      "id": "assistent-cad.mode-revisio",
+      "title": "Revisar la documentació",
+      "text": "Mode: documentation review. Do not produce a model. Return only contradictions, ambiguities, missing data and risks, each with the affected element and the sources involved. Do not propose solutions and do not invent values.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_CAD.md"
+    },
+    {
+      "id": "assistent-cad.regles",
+      "title": "Regles",
+      "text": "Rules: if two sources contradict each other, do not choose; report a contradiction with the affected element, the conflicting sources and values, the impact and the information needed to resolve it. Do not regularise defined geometries: logos and modulations keep their shape, proportions and number of elements. Never reuse dimensions or coordinates from other projects. Topography and urban works are separate, editable entities. Windows, doors and curtain walls include the components defined in the documentation. Keep real coordinates when they exist and the user asked to keep them.",
+      "status": "PENDENT_REVISIO",
+      "source": "docs/PROMPT_ASSISTENT_CAD.md"
+    }
+  ]
+}

@@ -24,9 +24,21 @@ L'empresa els facilitarà més endavant.
 | `biblioteca.clima-muntanya` | Muntanya | Ídem |
 | `projectes.aprovat` | Aprovat (filtre d'estat) | El disseny només mostra «En curs» i «Lliurat»; el flux té el botó «Aprovar» |
 
+## Decisions de la fase 2 per validar
+
+- **Idioma dels fragments**: anglès (els models d'edició d'imatge el segueixen millor). Les explicacions són en català.
+- **Opcions que «Màxima fidelitat» descarta** (camp `alters` del catàleg): «Interiors visibles», els estils de vegetació
+  diferents de «Mantenir estil original», «Vidres més transparents», «Millorar edificis de fons» i els atributs de
+  referència «Tipus» i «Distribució». L'usuari ho veu com a avís abans de generar.
+- **Prioritat en cas de conflicte**: el prompt situa la «instrucció explícita de l'usuari» al capdamunt però també diu que
+  el text lliure no pot anul·lar el prompt base ni el de control. S'ha resolt així: les indicacions de l'usuari manen
+  sobre les tries del formulari, però les frases que intenten desactivar les regles s'eliminen i es mostra un avís.
+- **Tipologies**: comercial, industrial, residencial, equipament, oficines, estació de servei, concessionari i altres.
+- **Els prompts no surten mai del servidor**: les opcions de la interfície no porten el text; el motor s'executa al
+  servidor i al navegador només hi arriben els avisos.
+
 ## Decisions de la fase 1 per validar
 
-- **Fragments de prompt**: cap opció de render porta encara `promptFragment`. Es transcriuran literalment a la fase 2.
 - **Categories sense pestanya de detalls**: «Fotorealisme general», «Interiors visibles» i «Resolució i nitidesa» no tenen
   opcions específiques ni al prompt ni al disseny, i per això no tenen pestanya a «Detalls». Cal confirmar si n'han de tenir.
 - **Valors per defecte del modelatge CAD segons el mode**: en «Model precís des de plànols», alçades, gruixos, coberta i

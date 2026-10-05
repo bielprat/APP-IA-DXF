@@ -30,7 +30,7 @@ export * from "./schema";
 export * from "./selection";
 
 /** Bump when option ids or texts change; stored with every job for reproducibility (§7). */
-export const CATALOG_VERSION = "2026-10-05.1";
+export const CATALOG_VERSION = "2026-10-05.2";
 
 const category = (data: unknown) => categorySchema.parse(data);
 

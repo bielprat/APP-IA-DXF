@@ -13,32 +13,32 @@
         {
           "id": "referencies.per-vegetacio",
           "label": "Vegetació",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.per-materials",
           "label": "Materials",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.per-illuminacio",
           "label": "Il·luminació",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.per-entorn",
           "label": "Entorn",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.per-interior",
           "label": "Interior",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.per-perspectiva",
           "label": "Altra perspectiva",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     },
@@ -55,43 +55,49 @@
         {
           "id": "referencies.qualitat",
           "label": "Qualitat",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.color",
           "label": "Color",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.textura",
           "label": "Textura",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.ambient",
           "label": "Ambient",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.tipus",
           "label": "Tipus",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "referencies.densitat",
           "label": "Densitat",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "referencies.distribucio",
           "label": "Distribució",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "referencies.guia-visual",
           "label": "Només com a guia visual",
           "exclusive": true,
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     }

@@ -1,15 +1,19 @@
 "use client";
 
 import { getGroup, renderCatalog } from "@cr/catalog";
+import type { PromptWarning } from "@cr/prompt-engine";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import { NotesField } from "@/components/flow/NotesField";
 import { buttonStyles } from "@/components/ui/button-styles";
 import { Dropzone } from "@/components/ui/Dropzone";
 import { OptionGroup } from "@/components/ui/OptionGroup";
+import { Notice } from "@/components/ui/Notice";
 import { Panel } from "@/components/ui/Panel";
+import { previewRenderWarnings } from "../actions";
 import { RENDER_ACCEPT, useRenderFlow } from "../RenderFlowProvider";
-import { generateBlockedReason, referenceImages } from "../state";
+import { generateBlockedReason, referenceImages, toPromptInput } from "../state";
 import { ImagePreview } from "./ImagePreview";
 import { RenderSummary } from "./RenderSummary";
 import { UploadErrors } from "@/components/ui/UploadErrors";
@@ -23,6 +27,7 @@ export function GenerateStep() {
   const router = useRouter();
   const blocked = generateBlockedReason(state);
   const references = referenceImages(state);
+  const warnings = usePromptWarnings(JSON.stringify(toPromptInput(state)));
 
   return (
     <div className="flex flex-wrap items-start gap-6">
@@ -67,6 +72,15 @@ export function GenerateStep() {
       <aside aria-label="Resum" className="flex min-w-0 flex-[1_1_300px] flex-col gap-4 md:sticky md:top-6 md:max-w-[380px]">
         <Panel>
           <RenderSummary />
+          {warnings.length > 0 && (
+            <Notice variant="warning" title="Algunes opcions no s'aplicaran">
+              <ul className="flex list-disc flex-col gap-1 pl-4 text-sm">
+                {warnings.map((warning) => (
+                  <li key={`${warning.code}:${warning.optionId ?? warning.message}`}>{warning.message}</li>
+                ))}
+              </ul>
+            </Notice>
+          )}
           {blocked && (
             <p id="generate-blocked" className="text-sm font-medium">
               {blocked}
@@ -88,4 +102,27 @@ export function GenerateStep() {
       </aside>
     </div>
   );
+}
+
+/** Server-computed warnings for the current selection, refreshed after a short pause. */
+function usePromptWarnings(serializedInput: string): PromptWarning[] {
+  const [warnings, setWarnings] = useState<PromptWarning[]>([]);
+  const input = useMemo(() => JSON.parse(serializedInput) as unknown, [serializedInput]);
+  useEffect(() => {
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      previewRenderWarnings(input)
+        .then((result) => {
+          if (!cancelled) setWarnings(result);
+        })
+        .catch(() => {
+          if (!cancelled) setWarnings([]);
+        });
+    }, 300);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, [input]);
+  return warnings;
 }

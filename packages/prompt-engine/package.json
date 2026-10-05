@@ -1,19 +1,17 @@
 {
-  "name": "@cr/catalog",
+  "name": "@cr/prompt-engine",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./prompts": "./src/prompts.ts"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "sync-fragments": "node scripts/sync-fragments.ts"
+    "test": "vitest run"
   },
   "dependencies": {
-    "zod": "4.6.5"
+    "@cr/catalog": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

@@ -12,6 +12,7 @@ import {
   renderReducer,
   restoreRenderState,
   summarizeRender,
+  toPromptInput,
   uploadBlockedReason,
   type RenderAction,
   type RenderFlowState,
@@ -107,5 +108,30 @@ describe("restoreRenderState", () => {
     expect(restored.details).toEqual({ "vidres.accio": ["vidres.mes-neutre"] });
     expect(restored.notes).toHaveLength(1000);
     expect(restoreRenderState(null)).toEqual({});
+  });
+});
+
+describe("toPromptInput", () => {
+  it("passes only the selected categories, with defaults resolved, and orders images like the attachments", () => {
+    let state = run(
+      { type: "addImages", images: [img("a"), img("b")] },
+      { type: "setPurpose", id: "b", purpose: "referencies.per-materials" },
+      { type: "toggleImprovement", id: "millores.vidres" },
+      { type: "toggleImprovement", id: "millores.vegetacio" },
+      { type: "addVegetationReference", image: img("v") },
+      { type: "setVegetationCopy", id: "v", copy: ["vegetacio.copiar-color"] },
+      { type: "setNotes", notes: "Més cel." },
+    );
+    state = renderReducer(state, { type: "setDetail", groupId: "materials.accions", selected: ["materials.fusta"] });
+    const input = toPromptInput(state, "comercial");
+    expect(input.details).toEqual({
+      "vidres.accio": ["vidres.mantenir"],
+      "vegetacio.accions": ["vegetacio.millorar-existent"],
+      "vegetacio.estil": ["vegetacio.estil-original"],
+    });
+    expect(input.references).toEqual([{ purpose: "referencies.per-materials", take: ["referencies.guia-visual"] }]);
+    expect(input.vegetationReferences).toEqual([{ copy: ["vegetacio.copiar-color"] }]);
+    expect(input.userNotes).toBe("Més cel.");
+    expect(input.projectType).toBe("comercial");
   });
 });

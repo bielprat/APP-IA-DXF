@@ -18,8 +18,8 @@ export const optionSchema = z.strictObject({
   exclusiveWith: z.array(z.string()).default([]),
   requires: z.array(z.string()).default([]),
   unlocks: z.array(z.string()).default([]),
-  /** Literal text from docs/ESPECIFICACIO_RENDER.md, added in phase 2. */
-  promptFragment: z.string().optional(),
+  /** What the option may alter; «Màxima fidelitat» discards options that alter anything. */
+  alters: z.array(z.enum(["geometry", "logos", "materials", "composition"])).default([]),
   status: optionStatus,
   // Domain-specific metadata.
   detailsCategory: z.string().optional(),
@@ -82,3 +82,15 @@ export type CatalogGroup = z.infer<typeof groupSchema>;
 export type CatalogCategory = z.infer<typeof categorySchema>;
 export type CatalogTab = z.infer<typeof tabSchema>;
 export type CadLayer = z.infer<typeof layerSchema>;
+
+export const promptFragmentSchema = z.strictObject({
+  id: z.string().regex(/^[a-z0-9-]+\.[a-z0-9-]+$/),
+  title: z.string(),
+  text: z.string().min(1),
+  status: optionStatus,
+  source: z.string(),
+});
+
+export const promptFragmentsSchema = z.strictObject({ fragments: z.array(promptFragmentSchema) });
+
+export type PromptFragment = z.infer<typeof promptFragmentSchema>;

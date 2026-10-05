@@ -16,7 +16,7 @@
           "label": "Fotorealisme general",
           "description": "Llum, ombres, reflexos i textures",
           "icon": "sparkle",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.vegetacio",
@@ -24,7 +24,7 @@
           "description": "Arbres, arbustos i gespa",
           "icon": "leaf",
           "detailsCategory": "vegetacio",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.vidres",
@@ -32,7 +32,7 @@
           "description": "Transparència i reflexos",
           "icon": "glass",
           "detailsCategory": "vidres",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.materials",
@@ -40,7 +40,7 @@
           "description": "Textura i detall dels acabats",
           "icon": "layers",
           "detailsCategory": "materials",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.illuminacio",
@@ -48,7 +48,7 @@
           "description": "Hora del dia i ambient",
           "icon": "sun",
           "detailsCategory": "illuminacio",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.entorn",
@@ -56,21 +56,24 @@
           "description": "Paviments, voreres i cel",
           "icon": "landscape",
           "detailsCategory": "entorn",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         },
         {
           "id": "millores.interiors",
           "label": "Interiors visibles",
           "description": "El que es veu darrere les vidrieres",
           "icon": "interior",
-          "status": "ok"
+          "status": "PENDENT_REVISIO",
+          "alters": [
+            "composition"
+          ]
         },
         {
           "id": "millores.resolucio",
           "label": "Resolució i nitidesa",
           "description": "Més claredat i detall",
           "icon": "focus",
-          "status": "ok"
+          "status": "PENDENT_REVISIO"
         }
       ]
     }
