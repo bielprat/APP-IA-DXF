@@ -1,0 +1,15 @@
+**/node_modules
+**/.next
+**/.env
+**/.env.*
+!.env.example
+apps/web/src/generated
+apps/web/test-results
+apps/web/playwright-report
+services/cad/.venv
+storage
+.git
+services/cad/tests
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache

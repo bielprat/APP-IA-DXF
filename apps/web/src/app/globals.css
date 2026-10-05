@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/*
+ * Colomer-Rifà tokens (prompt §2.1). Only the logo colors and derived neutrals.
+ * Derived neutrals taken from the reference design: border-chip, surface-sunken, text-on-tint.
+ */
+@theme {
+  --color-brand-orange: #ed7902;
+  --color-brand-gray: #707272;
+  --color-brand-black: #212121;
+  --color-bg-page: #f1f1f0;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f7f7f6;
+  --color-border: #d9dbda;
+  --color-border-chip: #cdd0cf;
+  --color-border-strong: #8e9291;
+  --color-text-muted: #5a5d5c;
+  --color-text-on-tint: #3a3c3b;
+  --color-tint-orange: #fdebd6;
+  --color-tint-gray: #e3e4e3;
+
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-bg-page);
+    color: var(--color-brand-black);
+    font-family: var(--font-sans);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-black);
+    outline-offset: 2px;
+  }
+}
