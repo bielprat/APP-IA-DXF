@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { buttonStyles } from "@/components/ui/button-styles";
+import { ProjectTable } from "@/features/projects/ProjectTable";
+import { requireUser } from "@/lib/auth/session";
+import { listProjects } from "@/server/projects";
 
 const MODULES = [
   {
@@ -23,7 +26,9 @@ const MODULES = [
   },
 ] as const;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const user = await requireUser();
+  const recent = await listProjects(user.id, 5);
   return (
     <>
       <header className="flex flex-col gap-2">
@@ -64,7 +69,7 @@ export default function HomePage() {
         <h2 id="recent-projects" className="text-xl font-semibold">
           Projectes recents
         </h2>
-        <p className="text-[15px] text-text-muted">Encara no hi ha projectes.</p>
+        <ProjectTable rows={recent} empty="Encara no hi ha projectes." />
       </section>
     </>
   );

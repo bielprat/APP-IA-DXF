@@ -24,6 +24,17 @@ L'empresa els facilitarà més endavant.
 | `biblioteca.clima-muntanya` | Muntanya | Ídem |
 | `projectes.aprovat` | Aprovat (filtre d'estat) | El disseny només mostra «En curs» i «Lliurat»; el flux té el botó «Aprovar» |
 
+## Decisions de la fase 3 per validar
+
+- **Proveïdors reals**: falta triar OpenAI o Gemini per a l'edició d'imatge i aportar les claus (també la d'Anthropic).
+  Fins aleshores només funciona el proveïdor de proves (`mock`), clarament indicat a la pantalla.
+- **Logos de Bonpreu, Esclat, Esclat Oil, Cupra i SEAT**: la detecció automàtica depèn del `VisionLLM` real. Mentrestant,
+  només es protegeixen les zones que l'usuari marca a «Fidelitat i generar».
+- **Límits provisionals**: 40 MB i 60 megapíxels per imatge; un sol treball actiu per projecte; sense reintents automàtics
+  (l'usuari pot prémer «Reintentar»).
+- **Llindar de restauració de logos**: es restaura si la diferència mitjana supera 4/255 per canal (vora suavitzada de 6 px).
+- **Esborrat de projectes i pressupost diari**: previst a la fase 7.
+
 ## Decisions de la fase 2 per validar
 
 - **Idioma dels fragments**: anglès (els models d'edició d'imatge el segueixen millor). Les explicacions són en català.

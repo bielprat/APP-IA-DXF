@@ -135,11 +135,15 @@ test("protected logo regions are restored and reported in the quality control", 
   await loginAndOpen(page, "usuari@colomer-rifa.cat", "/render/upload", "Colomer-Rifà Render AI");
   await page.locator('input[type="file"]').first().setInputFiles([imageFile("logo.png")]);
   await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(page).toHaveURL(/\/render\/improve$/);
   await page.getByRole("button", { name: "Continuar" }).click();
+  await expect(page).toHaveURL(/\/render\/details$/);
   await page.getByRole("button", { name: "Continuar" }).click();
   await expect(page).toHaveURL(/\/render\/generate$/);
 
-  const image = page.getByRole("img", { name: "Imatge base: logo.png" });
+  const image = page.getByRole("img", { name: "Imatge base per marcar logos: logo.png" });
+  await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth)).toBeGreaterThan(0);
+  await image.scrollIntoViewIfNeeded();
   const box = (await image.boundingBox())!;
   await page.mouse.move(box.x + box.width * 0.2, box.y + box.height * 0.2);
   await page.mouse.down();

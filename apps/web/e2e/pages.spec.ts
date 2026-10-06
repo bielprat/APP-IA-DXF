@@ -1,13 +1,24 @@
 import { expect, test } from "@playwright/test";
-import { expectAccessible, loginAndOpen } from "./helpers";
+import { expectAccessible, imageFile, loginAndOpen } from "./helpers";
 
-test("projects page offers filters and an honest empty state", async ({ page }) => {
-  await loginAndOpen(page, "usuari@colomer-rifa.cat", "/projects", "Projectes");
+test("projects page lists the user's projects and filters them", async ({ page }) => {
+  const email = `projectes-${test.info().project.name}@colomer-rifa.cat`;
+  await loginAndOpen(page, email, "/render/upload", "Colomer-Rifà Render AI");
+  await page.locator('input[type="file"]').first().setInputFiles([imageFile("Façana sud.png")]);
+  await expect(page.getByRole("group", { name: "Rol de Façana sud.png" })).toBeVisible();
+
+  await page.goto("/projects");
+  await expect(page.getByRole("link", { name: "Façana sud" }).first()).toBeVisible();
   const type = page.getByRole("group", { name: "Tipus" });
-  await type.getByRole("button", { name: "Render IA" }).click();
-  await expect(type.getByRole("button", { name: "Render IA" })).toHaveAttribute("aria-pressed", "true");
-  await expect(page.getByText("Encara no hi ha projectes.", { exact: false })).toBeVisible();
+  await type.getByRole("button", { name: "Model DXF 3D" }).click();
+  await expect(type.getByRole("button", { name: "Model DXF 3D" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByText("Cap projecte coincideix amb els filtres.")).toBeVisible();
   await expectAccessible(page);
+
+  const other = await page.context().browser()!.newPage();
+  await loginAndOpen(other, "altre-projectes@colomer-rifa.cat", "/projects", "Projectes");
+  await expect(other.getByRole("link", { name: "Façana sud" })).toHaveCount(0);
+  await other.close();
 });
 
 test("the vegetation library offers tag filters to admins", async ({ page }) => {

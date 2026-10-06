@@ -42,6 +42,9 @@ services:
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-cr}:${POSTGRES_PASSWORD:-cr}@postgres:5432/${POSTGRES_DB:-colomer_rifa}
       CAD_SERVICE_URL: http://cad:8000
+      STORAGE_LOCAL_DIR: /app/storage
+    volumes:
+      - render-storage:/app/storage
     ports:
       - "${WEB_PORT:-3000}:3000"
     depends_on:
@@ -52,3 +55,4 @@ services:
 
 volumes:
   postgres-data:
+  render-storage:

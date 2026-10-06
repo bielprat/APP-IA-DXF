@@ -94,7 +94,7 @@ export function GenerateStep() {
             </div>
             <RegionEditor
               imageUrl={base.url}
-              imageAlt={`Imatge base: ${base.name}`}
+              imageAlt={`Imatge base per marcar logos: ${base.name}`}
               regions={state.protectedRegions}
               labelPrefix="Logo o rètol"
               onAdd={(region) => dispatch({ type: "addRegion", region })}

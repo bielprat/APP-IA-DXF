@@ -5,8 +5,9 @@ Eina interna de Colomer-Rifà amb dos mòduls:
 1. **Millora de renders amb IA**: es puja un render, es trien opcions visuals i es genera una versió fotorealista fidel al projecte.
 2. **Modelatge 3D en DXF**: a partir de plànols o imatges es genera un DXF 3D editable per a Allplan i AutoCAD, organitzat per capes i colors.
 
-> Estat: **fase 2** completada. Totes les pantalles funcionen amb els catàlegs com a dades i el motor de prompts ja construeix
-> el prompt de cada render (textos pendents de revisió). La generació (IA i DXF) encara no està connectada i la interfície ho indica. Vegeu el pla a [`docs/arquitectura.md`](docs/arquitectura.md).
+> Estat: **fase 3** completada amb el proveïdor de proves (`mock`). El flux de renders funciona de punta a punta (pujar,
+> generar, comparar, corregir, tornar a l'original, aprovar i descarregar) amb versions, control de qualitat i protecció
+> de logos. Falta connectar els proveïdors d'IA reals (cal triar-los i aportar les claus). El modelatge DXF arriba a la fase 5. Vegeu el pla a [`docs/arquitectura.md`](docs/arquitectura.md).
 
 ## Estructura
 

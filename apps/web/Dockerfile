@@ -30,7 +30,7 @@ CMD ["pnpm", "exec", "prisma", "migrate", "deploy"]
 FROM node:22-slim AS runner
 ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0
 WORKDIR /app
-RUN useradd --create-home --uid 10001 web
+RUN useradd --create-home --uid 10001 web && mkdir -p /app/storage && chown web /app/storage
 COPY --from=build --chown=web /repo/apps/web/.next/standalone ./
 COPY --from=build --chown=web /repo/apps/web/.next/static ./apps/web/.next/static
 COPY --from=build --chown=web /repo/apps/web/public ./apps/web/public

@@ -33,6 +33,43 @@ Navegador ──► apps/web (Next.js) ──► PostgreSQL (Prisma, pg-boss)
 - **Base de dades**: PostgreSQL 16 + Prisma 7 (driver adapter `pg`). Les migracions s'apliquen amb el servei `migrate` de docker compose.
 - **Servei CAD**: FastAPI + ezdxf. A la fase 0 només exposa `/health`. Limitació coneguda: ezdxf no genera sòlids ACIS (`3DSOLID`).
 
+## Generació de renders (fase 3)
+
+```
+Pujar (POST /api/uploads) ──► Asset (StorageProvider)          [validació real: PNG/JPEG, 60 MP]
+GENERAR (POST /api/render/jobs) ──► RenderJob «queued» ──► pg-boss ──► worker (mateix procés, instrumentation.ts)
+worker: anàlisi (VisionLLM) → prompt(s) (prompt-engine) → edició (ImageEditProvider, 1 o 2 passades)
+        → mida original → protecció de logos → control de qualitat → Asset + RenderVersion (immutable)
+Pantalla de resultat: consulta GET /api/render/projects/[id] cada 1,5 s mentre hi ha un treball actiu.
+```
+
+- **Estats**: `queued → processing → qc → ready`, o `failed` / `cancelled`. Un projecte només té un treball actiu.
+  Els treballs fallits o cancel·lats es poden reintentar (idempotent: la clau de la cua inclou l'intent).
+- **Versions**: cada treball acabat crea una versió immutable (V1, V2…). Les correccions parteixen de la versió
+  seleccionada; «Tornar a l'original» crea una versió que apunta a la imatge original **sense cap crida d'IA**.
+- **Correccions**: només canvia el que s'indica. Amb «Millorar només aquesta zona», a més de la màscara enviada al
+  proveïdor, l'aplicació enganxa el resultat només dins la zona marcada (amb vora suavitzada).
+- **Protecció de logos**: per a cada zona protegida (detectada o marcada per l'usuari) es compara el resultat amb
+  l'original; si s'ha desviat, es restauren els píxels originals amb vora suavitzada. El resultat es veu al QC.
+- **Control de qualitat**: combina comprovacions mesurades per l'aplicació (mida, proporcions, zones protegides) amb
+  les del `VisionLLM`. Un element que no s'ha pogut verificar es mostra com a «No verificat», mai com a correcte.
+- **Proveïdors**: `VISION_PROVIDER` i `IMAGE_PROVIDER`. Ara mateix només hi ha `mock`, que **no fa servir cap IA**:
+  retorna la imatge original amb franges ben visibles, no detecta logos i deixa tot el QC com a «No verificat».
+  La pantalla ho indica («Resultat de prova (mock)»).
+- **Registres**: `AiCallLog` desa proveïdor, model, durada, tokens/cost i estat de cada crida, sense text de prompt.
+  Els prompts complets i els fragments usats van a `AuditPrompt` (només per a administradors).
+
+### Dades que surten cap als proveïdors d'IA
+
+| Proveïdor | Què rep | Quan |
+|---|---|---|
+| `VisionLLM` (previst: Anthropic) | Imatge base; per al QC, imatge base i resultat | Anàlisi i control de qualitat |
+| `ImageEditProvider` (previst: OpenAI o Gemini) | Imatge base o versió a corregir, prompt, referències, màscara | Generació i correccions |
+| `mock` | Res: tot es fa al servidor | Proves |
+
+No s'envia cap nom d'usuari, correu ni nom de projecte. Els fitxers dels clients no surten de l'emmagatzematge
+propi excepte per a aquestes crides.
+
 ## Decisions preses
 
 | Decisió | Motiu |
@@ -49,7 +86,7 @@ Navegador ──► apps/web (Next.js) ──► PostgreSQL (Prisma, pg-boss)
 | 0 | Monorepo, tokens, layout, autenticació amb rols, Docker, CI | ✅ |
 | 1 | Totes les pantalles amb catàlegs com a dades, sense IA | ✅ |
 | 2 | `prompt-engine` + catàleg de render + snapshots | ✅ (textos pendents de revisió) |
-| 3 | Pipeline de render (mock → real), màscares, logos, versions, comparador | Pendent |
+| 3 | Pipeline de render (mock → real), màscares, logos, versions, comparador | ✅ amb `mock` · proveïdors reals pendents de les claus |
 | 4 | Biblioteca de vegetació + selecció automàtica + QC vegetal | Pendent |
 | 5 | `cad-schema`, extracció, ezdxf, validador, nota tècnica, visor 3D | Pendent |
 | 6 | Correccions CAD, mode revisió, DWG condicionat | Pendent |

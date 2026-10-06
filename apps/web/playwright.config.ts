@@ -7,6 +7,9 @@ const baseURL = `http://localhost:${port}`;
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
+  // `next dev` compiles each route on first use, and the render flow runs several background jobs.
+  timeout: 120_000,
+  expect: { timeout: 15_000 },
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? "github" : "list",
   use: {
