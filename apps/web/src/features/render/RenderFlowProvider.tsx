@@ -1,26 +1,22 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { checkUploads, newId } from "@/features/shared/uploads";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { apiFetch } from "@/lib/client/api";
+import { checkUploads } from "@/features/shared/uploads";
 import { usePersistedReducer } from "@/features/shared/usePersistedReducer";
-import {
-  initialRenderState,
-  persistableRenderState,
-  renderReducer,
-  restoreRenderState,
-  type NewImage,
-  type RenderAction,
-  type RenderFlowState,
-} from "./state";
+import { initialRenderState, persistableRenderState, renderReducer, restoreRenderState, type RenderAction, type RenderFlowState } from "./state";
 
 export const RENDER_UPLOAD_RULES = { extensions: [".png", ".jpg", ".jpeg"], maxBytes: 40 * 1024 * 1024, maxCount: 10 } as const;
 export const RENDER_ACCEPT = "image/png,image/jpeg,.png,.jpg,.jpeg";
 
+type UploadResponse = { projectId: string; asset: { id: string; fileName: string; url: string } };
+
 type ContextValue = {
   state: RenderFlowState;
   dispatch: (action: RenderAction) => void;
-  /** Validates and adds files; returns the user-facing errors. */
-  addImages: (files: File[], target?: "images" | "vegetation") => string[];
+  /** Validates, uploads to the server and adds the images. */
+  addImages: (files: File[], target?: "images" | "vegetation") => Promise<void>;
+  uploading: boolean;
   uploadErrors: string[];
 };
 
@@ -29,45 +25,41 @@ const RenderFlowContext = createContext<ContextValue | null>(null);
 const hydrate = (raw: unknown): RenderAction => ({ type: "hydrate", state: restoreRenderState(raw) });
 
 export function RenderFlowProvider({ children }: { children: React.ReactNode }) {
-  const [state, rawDispatch] = usePersistedReducer("cr.render-flow.v1", renderReducer, initialRenderState, persistableRenderState, hydrate);
+  const [state, dispatch] = usePersistedReducer("cr.render-flow.v2", renderReducer, initialRenderState, persistableRenderState, hydrate);
+  const [uploading, setUploading] = useState(false);
   const [uploadErrors, setUploadErrors] = useState<string[]>([]);
-  const urls = useRef(new Map<string, string>());
-
-  const dispatch = useCallback(
-    (action: RenderAction) => {
-      if (action.type === "removeImage") {
-        const url = urls.current.get(action.id);
-        if (url) URL.revokeObjectURL(url);
-        urls.current.delete(action.id);
-      }
-      rawDispatch(action);
-    },
-    [rawDispatch],
-  );
 
   const addImages = useCallback(
-    (files: File[], target: "images" | "vegetation" = "images") => {
+    async (files: File[], target: "images" | "vegetation" = "images") => {
       const { accepted, errors } = checkUploads(files, state.images.length, RENDER_UPLOAD_RULES);
-      const images: NewImage[] = accepted.map((file) => {
-        const id = newId();
-        const url = URL.createObjectURL(file);
-        urls.current.set(id, url);
-        return { id, name: file.name, size: file.size, url };
-      });
-      if (target === "vegetation") images.forEach((image) => rawDispatch({ type: "addVegetationReference", image }));
-      else if (images.length > 0) rawDispatch({ type: "addImages", images });
       setUploadErrors(errors);
-      return errors;
+      if (accepted.length === 0) return;
+      setUploading(true);
+      let projectId = state.projectId;
+      // One by one: the first upload creates the project the others belong to.
+      for (const file of accepted) {
+        const form = new FormData();
+        form.append("file", file);
+        if (projectId) form.append("projectId", projectId);
+        try {
+          const result = await apiFetch<UploadResponse>("/api/uploads", { method: "POST", body: form });
+          if (result.projectId !== projectId) {
+            projectId = result.projectId;
+            dispatch({ type: "setProject", projectId });
+          }
+          const image = { id: result.asset.id, name: result.asset.fileName, url: result.asset.url };
+          dispatch(target === "vegetation" ? { type: "addVegetationReference", image } : { type: "addImages", images: [image] });
+        } catch (error) {
+          errors.push(`«${file.name}»: ${error instanceof Error ? error.message : "no s'ha pogut pujar."}`);
+          setUploadErrors([...errors]);
+        }
+      }
+      setUploading(false);
     },
-    [rawDispatch, state.images.length],
+    [dispatch, state.images.length, state.projectId],
   );
 
-  useEffect(() => {
-    const map = urls.current;
-    return () => map.forEach((url) => URL.revokeObjectURL(url));
-  }, []);
-
-  const value = useMemo(() => ({ state, dispatch, addImages, uploadErrors }), [state, dispatch, addImages, uploadErrors]);
+  const value = useMemo(() => ({ state, dispatch, addImages, uploading, uploadErrors }), [state, dispatch, addImages, uploading, uploadErrors]);
   return <RenderFlowContext.Provider value={value}>{children}</RenderFlowContext.Provider>;
 }
 

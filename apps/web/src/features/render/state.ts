@@ -1,4 +1,5 @@
 import type { RenderPromptInput } from "@cr/prompt-engine";
+import { regionSchema, type GenerateInput, type Region } from "./jobRequest";
 import { detailsFor, getGroup, getOption, isGroupValid, renderCatalog, resolveGroup, toggleOption, type CatalogCategory, type Selection } from "@cr/catalog";
 
 export const ROLE_BASE = "rols-imatge.base";
@@ -14,10 +15,10 @@ const TAKE_GROUP = getGroup("referencies.aprofitar");
 const VEGETATION_COPY_GROUP = getGroup("vegetacio.copiar");
 
 export type RenderImage = {
+  /** Asset id on the server. */
   id: string;
   name: string;
-  size: number;
-  /** Object URL; only valid for this browser tab. */
+  /** Authenticated URL served by /api/assets/[id]. */
   url: string;
   role: string;
   /** «Aquesta referència és per a» (single option id). */
@@ -29,7 +30,11 @@ export type RenderImage = {
 };
 
 export type RenderFlowState = {
+  /** Created by the first upload. */
+  projectId: string | null;
   images: RenderImage[];
+  /** Logos and signs the user marked on the base image. */
+  protectedRegions: Region[];
   improvements: string[];
   details: Selection;
   fidelity: string;
@@ -37,14 +42,16 @@ export type RenderFlowState = {
 };
 
 export const initialRenderState: RenderFlowState = {
+  projectId: null,
   images: [],
+  protectedRegions: [],
   improvements: [...IMPROVEMENTS.default],
   details: {},
   fidelity: FIDELITY.default[0],
   notes: "",
 };
 
-export type NewImage = Pick<RenderImage, "id" | "name" | "size" | "url">;
+export type NewImage = Pick<RenderImage, "id" | "name" | "url">;
 
 export type RenderAction =
   | { type: "addImages"; images: NewImage[] }
@@ -58,6 +65,10 @@ export type RenderAction =
   | { type: "setTake"; id: string; take: string[] }
   | { type: "setVegetationCopy"; id: string; copy: string[] }
   | { type: "setNotes"; notes: string }
+  | { type: "setProject"; projectId: string }
+  | { type: "addRegion"; region: Region }
+  | { type: "removeRegion"; index: number }
+  | { type: "reset" }
   | { type: "hydrate"; state: Partial<RenderFlowState> };
 
 function defaultPurpose(role: string): string | null {
@@ -83,8 +94,12 @@ export function renderReducer(state: RenderFlowState, action: RenderAction): Ren
       const image = { ...makeImage(action.image, ROLE_REFERENCE), purpose: PURPOSE_VEGETATION, vegetationCopy: [] };
       return { ...state, images: [...state.images, image] };
     }
-    case "removeImage":
-      return { ...state, images: state.images.filter((image) => image.id !== action.id) };
+    case "removeImage": {
+      const removed = state.images.find((image) => image.id === action.id);
+      const images = state.images.filter((image) => image.id !== action.id);
+      // Regions belong to the base image: drop them if it is removed.
+      return { ...state, images, protectedRegions: removed?.role === ROLE_BASE ? [] : state.protectedRegions };
+    }
     case "setRole": {
       getOption(action.role);
       return {
@@ -97,6 +112,7 @@ export function renderReducer(state: RenderFlowState, action: RenderAction): Ren
           if (action.role === ROLE_BASE && image.role === ROLE_BASE) return { ...image, role: ROLE_REFERENCE };
           return image;
         }),
+        protectedRegions: action.role === ROLE_BASE ? [] : state.protectedRegions,
       };
     }
     case "toggleImprovement":
@@ -113,6 +129,14 @@ export function renderReducer(state: RenderFlowState, action: RenderAction): Ren
       return { ...state, images: state.images.map((image) => (image.id === action.id ? { ...image, vegetationCopy: action.copy } : image)) };
     case "setNotes":
       return { ...state, notes: action.notes };
+    case "setProject":
+      return { ...state, projectId: action.projectId };
+    case "addRegion":
+      return { ...state, protectedRegions: [...state.protectedRegions, action.region].slice(0, 30) };
+    case "removeRegion":
+      return { ...state, protectedRegions: state.protectedRegions.filter((_, index) => index !== action.index) };
+    case "reset":
+      return initialRenderState;
     case "hydrate":
       return { ...state, ...action.state };
   }
@@ -193,9 +217,26 @@ export function summarizeRender(state: RenderFlowState): string[] {
   });
 }
 
-/** What survives a reload: choices, never client images (they are not uploaded until phase 3). */
+/** Everything survives a reload of the tab: images are already stored on the server. */
 export function persistableRenderState(state: RenderFlowState): Partial<RenderFlowState> {
-  return { improvements: state.improvements, details: state.details, fidelity: state.fidelity, notes: state.notes };
+  return state;
+}
+
+/** Body of POST /api/render/jobs for a new generation. */
+export function toGenerateInput(state: RenderFlowState): GenerateInput {
+  const base = baseImage(state);
+  if (!base) throw new Error("Missing base image");
+  const prompt = toPromptInput(state);
+  return {
+    baseAssetId: base.id,
+    references: referenceImages(state).map((image) => ({ assetId: image.id, purpose: image.purpose, take: image.take })),
+    vegetationReferences: vegetationReferences(state).map((image) => ({ assetId: image.id, copy: image.vegetationCopy ?? [] })),
+    improvements: prompt.improvements as string[],
+    details: prompt.details,
+    fidelity: prompt.fidelity,
+    notes: state.notes,
+    protectedRegions: state.protectedRegions,
+  };
 }
 
 const isKnownOption = (id: unknown): id is string => {
@@ -208,6 +249,22 @@ const isKnownOption = (id: unknown): id is string => {
   }
 };
 
+function isRestorableImage(value: unknown): value is RenderImage {
+  if (!value || typeof value !== "object") return false;
+  const image = value as Record<string, unknown>;
+  return (
+    typeof image.id === "string" &&
+    typeof image.name === "string" &&
+    typeof image.url === "string" &&
+    image.url === `/api/assets/${image.id}` &&
+    [ROLE_BASE, ROLE_REFERENCE, ROLE_PERSPECTIVE].includes(image.role as string) &&
+    (image.purpose === null || isKnownOption(image.purpose)) &&
+    Array.isArray(image.take) &&
+    image.take.every(isKnownOption) &&
+    (image.vegetationCopy === null || (Array.isArray(image.vegetationCopy) && image.vegetationCopy.every(isKnownOption)))
+  );
+}
+
 /** Restores persisted choices, dropping anything the current catalog no longer knows. */
 export function restoreRenderState(raw: unknown): Partial<RenderFlowState> {
   if (!raw || typeof raw !== "object") return {};
@@ -216,6 +273,14 @@ export function restoreRenderState(raw: unknown): Partial<RenderFlowState> {
   if (Array.isArray(value.improvements)) restored.improvements = value.improvements.filter(isKnownOption);
   if (isKnownOption(value.fidelity) && FIDELITY.options.some((option) => option.id === value.fidelity)) restored.fidelity = value.fidelity;
   if (typeof value.notes === "string") restored.notes = value.notes.slice(0, 1000);
+  if (typeof value.projectId === "string" && value.projectId.length <= 40) restored.projectId = value.projectId;
+  if (Array.isArray(value.images)) restored.images = value.images.filter(isRestorableImage);
+  if (Array.isArray(value.protectedRegions)) {
+    restored.protectedRegions = value.protectedRegions.flatMap((region) => {
+      const parsed = regionSchema.safeParse(region);
+      return parsed.success ? [parsed.data] : [];
+    });
+  }
   if (value.details && typeof value.details === "object") {
     const details: Selection = {};
     for (const [groupId, selected] of Object.entries(value.details as Record<string, unknown>)) {

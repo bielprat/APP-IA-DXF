@@ -12,13 +12,14 @@ import {
   renderReducer,
   restoreRenderState,
   summarizeRender,
+  toGenerateInput,
   toPromptInput,
   uploadBlockedReason,
   type RenderAction,
   type RenderFlowState,
 } from "./state";
 
-const img = (id: string) => ({ id, name: `${id}.jpg`, size: 10, url: `blob:${id}` });
+const img = (id: string) => ({ id, name: `${id}.jpg`, url: `/api/assets/${id}` });
 const run = (...actions: RenderAction[]) => actions.reduce(renderReducer, initialRenderState);
 
 describe("images", () => {
@@ -95,7 +96,41 @@ describe("generate", () => {
   });
 });
 
+describe("protected regions and reset", () => {
+  const region = { x: 0.1, y: 0.1, width: 0.2, height: 0.1, label: "Logo" };
+
+  it("keeps regions with the base image and clears them when the base changes", () => {
+    let state = run({ type: "addImages", images: [img("a"), img("b")] }, { type: "addRegion", region });
+    expect(state.protectedRegions).toEqual([region]);
+    state = renderReducer(state, { type: "setRole", id: "b", role: ROLE_BASE });
+    expect(state.protectedRegions).toEqual([]);
+  });
+
+  it("builds the job request with asset ids and regions", () => {
+    const state = run({ type: "addImages", images: [img("a")] }, { type: "addRegion", region });
+    expect(toGenerateInput(state)).toMatchObject({ baseAssetId: "a", references: [], protectedRegions: [region], fidelity: "fidelitat.maxima" });
+  });
+
+  it("resets the whole flow", () => {
+    expect(renderReducer(run({ type: "addImages", images: [img("a")] }), { type: "reset" })).toEqual(initialRenderState);
+  });
+});
+
 describe("restoreRenderState", () => {
+  it("restores server images and regions, rejecting foreign URLs", () => {
+    const restored = restoreRenderState({
+      projectId: "p1",
+      images: [
+        { id: "a", name: "a.png", url: "/api/assets/a", role: ROLE_BASE, purpose: null, take: [], vegetationCopy: null },
+        { id: "b", name: "b.png", url: "https://evil.example/b.png", role: ROLE_REFERENCE, purpose: null, take: [], vegetationCopy: null },
+      ],
+      protectedRegions: [{ x: 0, y: 0, width: 0.5, height: 0.5, label: "Logo" }, { x: 0.9, y: 0, width: 0.5, height: 0.5, label: "fora" }],
+    });
+    expect(restored.projectId).toBe("p1");
+    expect(restored.images?.map((image) => image.id)).toEqual(["a"]);
+    expect(restored.protectedRegions).toHaveLength(1);
+  });
+
   it("drops unknown ids and invalid values", () => {
     const restored = restoreRenderState({
       improvements: ["millores.vidres", "millores.inexistent", 3],

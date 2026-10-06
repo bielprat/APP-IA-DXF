@@ -14,7 +14,7 @@ import { UploadErrors } from "@/components/ui/UploadErrors";
 const ROLES = renderCatalog.imageRoles.groups[0].options;
 
 export function UploadStep() {
-  const { state, dispatch, addImages, uploadErrors } = useRenderFlow();
+  const { state, dispatch, addImages, uploading, uploadErrors } = useRenderFlow();
   const base = baseImage(state);
 
   return (
@@ -32,6 +32,11 @@ export function UploadStep() {
               </div>
             ) : (
               <Dropzone label="Arrossega el render aquí o selecciona'l" hint="PNG · JPG" accept={RENDER_ACCEPT} onFiles={(files) => addImages(files)} />
+            )}
+            {uploading && (
+              <p role="status" className="text-[15px] font-medium">
+                Pujant imatges…
+              </p>
             )}
             <UploadErrors errors={uploadErrors} />
           </Panel>
@@ -98,7 +103,7 @@ export function UploadStep() {
       <FlowFooter
         status={state.images.length === 0 ? undefined : `${state.images.length} ${state.images.length === 1 ? "imatge" : "imatges"}${base ? "" : " · cap imatge base"}`}
         nextHref="/render/improve"
-        blockedReason={uploadBlockedReason(state)}
+        blockedReason={uploading ? "Espera que acabin de pujar les imatges." : uploadBlockedReason(state)}
       />
     </>
   );

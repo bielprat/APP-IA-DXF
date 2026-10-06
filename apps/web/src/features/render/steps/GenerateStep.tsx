@@ -5,6 +5,8 @@ import type { PromptWarning } from "@cr/prompt-engine";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { RegionEditor } from "@/components/flow/RegionEditor";
+import { postJson } from "@/lib/client/api";
 import { NotesField } from "@/components/flow/NotesField";
 import { buttonStyles } from "@/components/ui/button-styles";
 import { Dropzone } from "@/components/ui/Dropzone";
@@ -13,7 +15,7 @@ import { Notice } from "@/components/ui/Notice";
 import { Panel } from "@/components/ui/Panel";
 import { previewRenderWarnings } from "../actions";
 import { RENDER_ACCEPT, useRenderFlow } from "../RenderFlowProvider";
-import { generateBlockedReason, referenceImages, toPromptInput } from "../state";
+import { baseImage, generateBlockedReason, referenceImages, toGenerateInput, toPromptInput } from "../state";
 import { ImagePreview } from "./ImagePreview";
 import { RenderSummary } from "./RenderSummary";
 import { UploadErrors } from "@/components/ui/UploadErrors";
@@ -23,9 +25,25 @@ const PURPOSE = getGroup("referencies.finalitat");
 const TAKE = getGroup("referencies.aprofitar");
 
 export function GenerateStep() {
-  const { state, dispatch, addImages, uploadErrors } = useRenderFlow();
+  const { state, dispatch, addImages, uploading, uploadErrors } = useRenderFlow();
   const router = useRouter();
-  const blocked = generateBlockedReason(state);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const base = baseImage(state);
+  const blocked = uploading ? "Espera que acabin de pujar les imatges." : generateBlockedReason(state);
+
+  const generate = async () => {
+    if (!state.projectId) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      await postJson("/api/render/jobs", { kind: "generate", projectId: state.projectId, input: toGenerateInput(state) });
+      router.push(`/render/result/${state.projectId}`);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "No s'ha pogut iniciar la generació.");
+      setSubmitting(false);
+    }
+  };
   const references = referenceImages(state);
   const warnings = usePromptWarnings(JSON.stringify(toPromptInput(state)));
 
@@ -66,6 +84,25 @@ export function GenerateStep() {
           <UploadErrors errors={uploadErrors} />
         </Panel>
 
+        {base && (
+          <Panel aria-labelledby="protected-title">
+            <div className="flex flex-col gap-1">
+              <h2 id="protected-title" className="text-base font-semibold">
+                Logos i rètols protegits <span className="font-normal text-text-muted">· opcional</span>
+              </h2>
+              <p className="text-sm text-text-muted">Marca els logos i rètols que no s&apos;han de modificar. Si canvien, es restauren tal com són a l&apos;original.</p>
+            </div>
+            <RegionEditor
+              imageUrl={base.url}
+              imageAlt={`Imatge base: ${base.name}`}
+              regions={state.protectedRegions}
+              labelPrefix="Logo o rètol"
+              onAdd={(region) => dispatch({ type: "addRegion", region })}
+              onRemove={(index) => dispatch({ type: "removeRegion", index })}
+            />
+          </Panel>
+        )}
+
         <NotesField value={state.notes} onChange={(notes) => dispatch({ type: "setNotes", notes })} />
       </div>
 
@@ -86,14 +123,19 @@ export function GenerateStep() {
               {blocked}
             </p>
           )}
+          {submitError && (
+            <p role="alert" className="rounded-xl bg-tint-orange px-4 py-3 text-[15px]">
+              {submitError}
+            </p>
+          )}
           <button
             type="button"
             className={buttonStyles.generate}
-            disabled={Boolean(blocked)}
+            disabled={Boolean(blocked) || submitting}
             aria-describedby={blocked ? "generate-blocked" : undefined}
-            onClick={() => router.push("/render/result/draft")}
+            onClick={generate}
           >
-            Generar
+            {submitting ? "Iniciant…" : "Generar"}
           </button>
         </Panel>
         <Link href="/render/details" className={buttonStyles.secondary}>

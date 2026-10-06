@@ -1,4 +1,4 @@
-// Phase 0: only identity. The full data model (§7) is added in later phases.
+// Data model (prompt §7). CAD and vegetation-library tables are added in phases 4–5.
 
 generator client {
   provider = "prisma-client"
@@ -23,4 +23,173 @@ model User {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   lastLoginAt DateTime?
+
+  projects Project[]
+}
+
+enum ProjectType {
+  render
+  cad
+}
+
+enum ProjectStatus {
+  in_progress
+  approved
+  delivered
+}
+
+model Project {
+  id        String        @id @default(cuid())
+  ownerId   String
+  owner     User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  name      String
+  type      ProjectType
+  status    ProjectStatus @default(in_progress)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  assets         Asset[]
+  renderJobs     RenderJob[]
+  renderVersions RenderVersion[]
+
+  @@index([ownerId, updatedAt])
+}
+
+enum AssetKind {
+  render_input
+  render_output
+  cad_source
+  cad_output
+}
+
+/// A stored file. Bytes live in the StorageProvider under `storageKey`; never served without an ownership check.
+model Asset {
+  id         String    @id @default(cuid())
+  projectId  String
+  project    Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  kind       AssetKind
+  fileName   String
+  mimeType   String
+  sizeBytes  Int
+  width      Int?
+  height     Int?
+  sha256     String
+  storageKey String    @unique
+  createdAt  DateTime  @default(now())
+
+  versions RenderVersion[]
+
+  @@index([projectId])
+}
+
+enum JobStatus {
+  queued
+  processing
+  qc
+  ready
+  failed
+  cancelled
+}
+
+enum RenderJobKind {
+  generate
+  correction
+  restore
+}
+
+/// One generation request. `input` keeps the chosen option ids, image ids and protected regions so any
+/// result can be reproduced and audited together with the catalog/engine versions and providers used.
+model RenderJob {
+  id              String        @id @default(cuid())
+  projectId       String
+  project         Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdById     String
+  kind            RenderJobKind
+  status          JobStatus     @default(queued)
+  input           Json
+  /// VisionLLM analysis of the base image (project type, protected regions); reused by corrections.
+  analysis        Json?
+  sourceVersionId String?
+  catalogVersion  String
+  engineVersion   String
+  imageProvider   String?
+  imageModel      String?
+  visionProvider  String?
+  visionModel     String?
+  error           String?
+  attempts        Int           @default(0)
+  createdAt       DateTime      @default(now())
+  startedAt       DateTime?
+  finishedAt      DateTime?
+
+  version       RenderVersion?
+  qualityReport QualityReport?
+  prompts       AuditPrompt[]
+  aiCalls       AiCallLog[]
+
+  @@index([projectId, createdAt])
+}
+
+/// Immutable result (V1, V2…). A restore points at the original input asset without any AI call.
+model RenderVersion {
+  id              String        @id @default(cuid())
+  projectId       String
+  project         Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  jobId           String        @unique
+  job             RenderJob     @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  number          Int
+  kind            RenderJobKind
+  assetId         String
+  asset           Asset         @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  parentVersionId String?
+  approvedAt      DateTime?
+  approvedById    String?
+  createdAt       DateTime      @default(now())
+
+  @@unique([projectId, number])
+}
+
+/// Metadata of every AI call. Never contains prompt text (that goes to AuditPrompt).
+model AiCallLog {
+  id               String    @id @default(cuid())
+  jobId            String?
+  job              RenderJob? @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  userId           String
+  purpose          String
+  provider         String
+  model            String
+  status           String
+  error            String?
+  durationMs       Int
+  inputTokens      Int?
+  outputTokens     Int?
+  estimatedCostEur Decimal?  @db.Decimal(10, 4)
+  createdAt        DateTime  @default(now())
+
+  @@index([userId, createdAt])
+}
+
+/// Final prompts and fragments used. Admin-only.
+model AuditPrompt {
+  id             String    @id @default(cuid())
+  jobId          String
+  job            RenderJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  pass           String
+  prompt         String
+  usedFragments  Json
+  warnings       Json
+  catalogVersion String
+  engineVersion  String
+  createdAt      DateTime  @default(now())
+
+  @@index([jobId])
+}
+
+model QualityReport {
+  id        String    @id @default(cuid())
+  jobId     String    @unique
+  job       RenderJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  status    String
+  checks    Json
+  createdAt DateTime  @default(now())
 }
